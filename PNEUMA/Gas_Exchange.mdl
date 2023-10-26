@@ -1,0 +1,6553 @@
+Model {
+  Name			  "Gas_Exchange"
+  Version		  7.0
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    4
+    Inport {
+      Name		      "Vt - Tidal Volume"
+    }
+    Inport {
+      Name		      "SI Sleep Wake State Index"
+    }
+    Inport {
+      Name		      "Air Flow"
+    }
+    Inport {
+      Name		      "Blood Flow"
+    }
+    NumRootOutports	    5
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      SignalName	      "PaCO2"
+      Name		      "PaCO2"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      SignalName	      "PaO2"
+      Name		      "PaO2"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "SAO2"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      SignalName	      "PbCO2"
+      Name		      "PbCO2"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "CaO2"
+    }
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.26"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "GBK"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Mon Jul 23 19:51:12 2001"
+  Creator		  "CLM"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "CLM"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu Apr 22 23:37:15 2010"
+  RTWModifiedTimeStamp	  0
+  ModelVersionFormat	  "1.%<AutoIncrement:26>"
+  ConfigurationManager	  "none"
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.3.0"
+      Array {
+	Type			"Handle"
+	Dimension		7
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.3.0"
+	  StartTime		  "0.0"
+	  StopTime		  "10.0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  RateTranMode		  "Deterministic"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.3.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    5
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "InitFltsAndDblsToZero"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.3.0"
+	  BlockReduction	  off
+	  BooleanDataType	  off
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnforceIntegerDowncast  on
+	  ExpressionFolding	  on
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  on
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.3.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"none"
+	  CheckSSInitialOutputMsg on
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "TryResolveAllWithWarning"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  SolverPrmCheckMsg	  "none"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "warning"
+	  MultiTaskCondExecSysMsg "none"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  ModelReferenceSimTargetVerbose off
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  StrictBusMsg		  "None"
+	  LoggingUnavailableSignals "error"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.3.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  on
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.3.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  8
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "IncludeHyperlinkInReport"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.3.0"
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  on
+	  GenerateTraceInfo	  off
+	  RTWCompilerOptimization "Off"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      9
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.3.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      SimulinkBlockComments   on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      10
+	      Array {
+		Type			"Cell"
+		Dimension		13
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.3.0"
+	      TargetFcnLib	      "ansi_tfl_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      GenFloatMathFcnCalls    "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  on
+	      CombineOutputUpdateFcns off
+	      SuppressErrorStatus     off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      ActionPort
+      InitializeStates	      "held"
+      ActionType	      "unset"
+    }
+    Block {
+      BlockType		      From
+      IconDisplay	      "Tag"
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "fixdt(1,16,0)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "[]"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Goto
+      IconDisplay	      "Tag"
+    }
+    Block {
+      BlockType		      If
+      NumInputs		      "1"
+      IfExpression	      "u1 > 0"
+      ShowElse		      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      ContinuousStateAttributes	"''"
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Step
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Switch
+      Criteria		      "u2 >= Threshold"
+      Threshold		      "0"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      ZeroCross		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      VariableTransportDelay
+      VariableDelayType	      "Variable time delay"
+      MaximumDelay	      "1"
+      InitialOutput	      "0"
+      MaximumPoints	      "1024"
+      FixedBuffer	      off
+      ZeroDelay		      off
+      TransDelayFeedthrough   off
+      PadeOrder		      "0"
+      AbsoluteTolerance	      "auto"
+      ContinuousStateAttributes	"''"
+    }
+    Block {
+      BlockType		      Abs
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "fixdt(1,16,0)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "[]"
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimit	      "0.5"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "Gas_Exchange"
+    Location		    [11, 157, 1192, 845]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Inport
+      Name		      "Vt - Tidal Volume"
+      Position		      [45, 438, 75, 452]
+      ForegroundColor	      "blue"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "SI Sleep Wake State Index"
+      Position		      [765, 328, 795, 342]
+      ForegroundColor	      "blue"
+      Port		      "2"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Air Flow"
+      Position		      [25, 163, 55, 177]
+      ForegroundColor	      "lightBlue"
+      Port		      "3"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Blood Flow"
+      Position		      [935, 603, 965, 617]
+      Orientation	      "left"
+      ForegroundColor	      "red"
+      Port		      "4"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "BODY TISSUES\nCOMPARTMENT"
+      Ports		      [4, 2]
+      Position		      [830, 416, 970, 519]
+      ForegroundColor	      "magenta"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      System {
+	Name			"BODY TISSUES\nCOMPARTMENT"
+	Location		[6, 93, 1274, 751]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "SI Sleep Wake State Index"
+	  Position		  [880, 350, 900, 370]
+	  Orientation		  "left"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "CaCO2"
+	  Position		  [880, 280, 900, 300]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "CaO2"
+	  Position		  [880, 480, 900, 500]
+	  Orientation		  "left"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Qt\n"
+	  Position		  [845, 315, 865, 335]
+	  Orientation		  "left"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Body Tissues\nCompartment for CO2"
+	  Ports			  [3, 1]
+	  Position		  [430, 272, 720, 378]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "Body Tissues\nCompartment for CO2"
+	    Location		    [2, 93, 1270, 781]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "CaCO2"
+	      Position		      [385, 395, 405, 415]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Qt"
+	      Position		      [385, 370, 405, 390]
+	      NamePlacement	      "alternate"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "SI Sleep Wake State Index"
+	      Position		      [385, 315, 405, 335]
+	      NamePlacement	      "alternate"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "CvCO2IC"
+	      Position		      [700, 322, 795, 338]
+	      Orientation	      "left"
+	      ShowName		      off
+	      GotoTag		      "CvCO2IC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn"
+	      Position		      [475, 315, 515, 335]
+	      ShowName		      off
+	      Expr		      "MRCO2*(0.375*(1-0.4*u)+0.625)"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn -5 blocks"
+	      Position		      [630, 393, 720, 417]
+	      Expr		      "( u(1) + ( u(2) * u(3)) ) /VTCO2"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [755, 390, 790, 420]
+	      ShowName		      off
+	      InitialCondition	      "CvCO2IC"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux"
+	      Ports		      [3, 1]
+	      Position		      [580, 386, 585, 424]
+	      ShowName		      off
+	      Inputs		      "3"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum1"
+	      Ports		      [2, 1]
+	      Position		      [455, 398, 485, 427]
+	      ShowName		      off
+	      Inputs		      "+-"
+	      CollapseMode	      "All dimensions"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "CvCO2"
+	      Position		      [905, 395, 925, 415]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "SI Sleep Wake State Index"
+	      SrcPort		      1
+	      DstBlock		      "Fcn"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "CaCO2"
+	      SrcPort		      1
+	      DstBlock		      "Sum1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Fcn -5 blocks"
+	      SrcPort		      1
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [0, 0; 55, 0]
+	      Branch {
+		Points			[0, -75]
+		DstBlock		"CvCO2IC"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 55; -410, 0]
+		DstBlock		"Sum1"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"CvCO2"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Mux"
+	      SrcPort		      1
+	      DstBlock		      "Fcn -5 blocks"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Fcn"
+	      SrcPort		      1
+	      Points		      [20, 0; 0, 70]
+	      DstBlock		      "Mux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Qt"
+	      SrcPort		      1
+	      Points		      [120, 0; 0, 25]
+	      DstBlock		      "Mux"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum1"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Body Tissues\nCompartment for O2"
+	  Ports			  [3, 1]
+	  Position		  [430, 401, 720, 509]
+	  Orientation		  "left"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "Body Tissues\nCompartment for O2"
+	    Location		    [614, 300, 1196, 563]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Qt"
+	      Position		      [65, 115, 85, 135]
+	      NamePlacement	      "alternate"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "SI Sleep Wake State Index"
+	      Position		      [65, 65, 85, 85]
+	      NamePlacement	      "alternate"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "CaO2"
+	      Position		      [65, 145, 85, 165]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "CvO2IC"
+	      Position		      [315, 68, 410, 82]
+	      Orientation	      "left"
+	      ShowName		      off
+	      GotoTag		      "CvO2IC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn"
+	      Position		      [170, 65, 210, 85]
+	      ShowName		      off
+	      Expr		      "MRO2*(0.375*(1-0.4*u)+0.625)"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn -5 blocks"
+	      Position		      [285, 144, 335, 166]
+	      Expr		      "( -u(1) + ( u(2) * u(3)) ) /VTO2"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [390, 140, 420, 170]
+	      ShowName		      off
+	      InitialCondition	      "CvO2IC"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux"
+	      Ports		      [3, 1]
+	      Position		      [260, 136, 265, 174]
+	      ShowName		      off
+	      Inputs		      "3"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum1"
+	      Ports		      [2, 1]
+	      Position		      [125, 149, 155, 176]
+	      ShowName		      off
+	      Inputs		      "+-"
+	      CollapseMode	      "All dimensions"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "CVO2"
+	      Position		      [510, 145, 530, 165]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "SI Sleep Wake State Index"
+	      SrcPort		      1
+	      DstBlock		      "Fcn"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Qt"
+	      SrcPort		      1
+	      Points		      [80, 0; 0, 30]
+	      DstBlock		      "Mux"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum1"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "CaO2"
+	      SrcPort		      1
+	      DstBlock		      "Sum1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Fcn -5 blocks"
+	      SrcPort		      1
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [35, 0]
+	      Branch {
+		Points			[0, -80]
+		DstBlock		"CvO2IC"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 70; -350, 0]
+		DstBlock		"Sum1"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"CVO2"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Mux"
+	      SrcPort		      1
+	      DstBlock		      "Fcn -5 blocks"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Fcn"
+	      SrcPort		      1
+	      Points		      [15, 0; 0, 70]
+	      DstBlock		      "Mux"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "CvCO2"
+	  Position		  [335, 315, 355, 335]
+	  Orientation		  "left"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "CvO2"
+	  Position		  [335, 445, 355, 465]
+	  Orientation		  "left"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "SI Sleep Wake State Index"
+	  SrcPort		  1
+	  Points		  [0, 0; -95, 0]
+	  Branch {
+	    DstBlock		    "Body Tissues\nCompartment for CO2"
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [0, 95]
+	    DstBlock		    "Body Tissues\nCompartment for O2"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "CaCO2"
+	  SrcPort		  1
+	  DstBlock		  "Body Tissues\nCompartment for CO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "CaO2"
+	  SrcPort		  1
+	  DstBlock		  "Body Tissues\nCompartment for O2"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Body Tissues\nCompartment for CO2"
+	  SrcPort		  1
+	  DstBlock		  "CvCO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Body Tissues\nCompartment for O2"
+	  SrcPort		  1
+	  DstBlock		  "CvO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Qt\n"
+	  SrcPort		  1
+	  Points		  [-70, 0; -5, 0]
+	  Branch {
+	    Points		    [0, 95]
+	    DstBlock		    "Body Tissues\nCompartment for O2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Body Tissues\nCompartment for CO2"
+	    DstPort		    2
+	  }
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "BRAIN COMPARTMENT"
+      Ports		      [3, 1]
+      Position		      [830, 134, 970, 236]
+      ForegroundColor	      "orange"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Port {
+	PortNumber		1
+	Name			"PbCO2"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      System {
+	Name			"BRAIN COMPARTMENT"
+	Location		[234, 450, 973, 695]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Qb"
+	  Position		  [55, 110, 75, 130]
+	  NamePlacement		  "alternate"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "PaCO2"
+	  Position		  [55, 140, 75, 160]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "SI Sleep Wake State Index"
+	  Position		  [55, 50, 75, 70]
+	  NamePlacement		  "alternate"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "Fcn"
+	  Position		  [200, 49, 250, 71]
+	  ShowName		  off
+	  Expr			  "MRbCO2*(0.375*(1-0.4*u)+0.625)"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "Fcn -5 blocks"
+	  Position		  [370, 129, 420, 151]
+	  Expr			  "(u(1) + ( u(2) * u(3)) *SCO2- h ) /SbCO2"
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Integrator"
+	  Ports			  [1, 1]
+	  Position		  [515, 135, 535, 155]
+	  ShowName		  off
+	  InitialCondition	  "PbCO2IC"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux"
+	  Ports			  [3, 1]
+	  Position		  [345, 121, 350, 159]
+	  ShowName		  off
+	  Inputs		  "3"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "PbCO2IC"
+	  Position		  [425, 71, 530, 89]
+	  Orientation		  "left"
+	  ShowName		  off
+	  GotoTag		  "PbCO2IC"
+	  TagVisibility		  "global"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "sum"
+	  Ports			  [2, 1]
+	  Position		  [125, 143, 155, 172]
+	  ShowName		  off
+	  Inputs		  "+-"
+	  CollapseMode		  "All dimensions"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "PbCO2"
+	  Position		  [600, 135, 620, 155]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "Fcn -5 blocks"
+	  SrcPort		  1
+	  Points		  [0, 5]
+	  DstBlock		  "Integrator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "PaCO2"
+	  SrcPort		  1
+	  DstBlock		  "sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Integrator"
+	  SrcPort		  1
+	  Points		  [0, 0; 20, 0]
+	  Branch {
+	    Points		    [0, 75; -465, 0; 0, -55]
+	    DstBlock		    "sum"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, -65]
+	    DstBlock		    "PbCO2IC"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "PbCO2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "SI Sleep Wake State Index"
+	  SrcPort		  1
+	  DstBlock		  "Fcn"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Mux"
+	  SrcPort		  1
+	  DstBlock		  "Fcn -5 blocks"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Fcn"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, 70]
+	  DstBlock		  "Mux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Qb"
+	  SrcPort		  1
+	  Points		  [125, 0; 0, 20]
+	  DstBlock		  "Mux"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "sum"
+	  SrcPort		  1
+	  Points		  [85, 0; 0, -10]
+	  DstBlock		  "Mux"
+	  DstPort		  3
+	}
+      }
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Blood Flow to Tissues"
+      Position		      [774, 530, 816, 565]
+      Orientation	      "up"
+      ForegroundColor	      "red"
+      Gain		      "0.85"
+      ParameterDataType	      "sfix(16)"
+      ParameterScaling	      "2^0"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Cardiovascular\nMixing and Convection"
+      Ports		      [4, 2]
+      Position		      [425, 161, 600, 254]
+      ForegroundColor	      "cyan"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Port {
+	PortNumber		1
+	Name			"PaCO2"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		2
+	Name			"PaO2"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      System {
+	Name			"Cardiovascular\nMixing and Convection"
+	Location		[359, 135, 1095, 737]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Lung-Chemoreceptor Delay Volume"
+	  Position		  [110, 100, 130, 120]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "PACO2"
+	  Position		  [25, 50, 45, 70]
+	  NamePlacement		  "alternate"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "PAO2"
+	  Position		  [25, 155, 45, 175]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Q"
+	  Position		  [25, 75, 45, 95]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "CO2 Cardiovascular Mixing\nand Convection Effects"
+	  Ports			  [3, 1]
+	  Position		  [220, 54, 355, 126]
+	  NamePlacement		  "alternate"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "CO2 Cardiovascular Mixing\nand Convection Effects"
+	    Location		    [241, 93, 1260, 539]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "PACO2"
+	      Position		      [45, 214, 95, 226]
+	      NamePlacement	      "alternate"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Q"
+	      Position		      [45, 279, 95, 291]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Lung-Chemoreceptor Delay Volume"
+	      Position		      [45, 249, 95, 261]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "1/(T1*T2)"
+	      Position		      [200, 87, 270, 143]
+	      ShowName		      off
+	      Gain		      "1/(T1*T2)"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [325, 98, 360, 132]
+	      ShowName		      off
+	      InitialCondition	      "PaCO2firstIC"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator1"
+	      Ports		      [1, 1]
+	      Position		      [435, 98, 470, 132]
+	      ShowName		      off
+	      InitialCondition	      "PaCO2secondIC"
+	    }
+	    Block {
+	      BlockType		      VariableTransportDelay
+	      Name		      "PACO2 delay"
+	      Position		      [395, 242, 425, 273]
+	      NamePlacement	      "alternate"
+	      MaximumDelay	      "100"
+	      InitialOutput	      "PACO2_delayIC"
+	      MaximumPoints	      "22528"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "PACO2_delayIC"
+	      Position		      [320, 301, 435, 319]
+	      Orientation	      "left"
+	      ShowName		      off
+	      GotoTag		      "PACO2_delayIC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "PaCO2firstIC"
+	      Position		      [240, 156, 355, 174]
+	      Orientation	      "left"
+	      ShowName		      off
+	      GotoTag		      "PaCO2firstIC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "PaCo2secondIC"
+	      Position		      [530, 34, 625, 56]
+	      NamePlacement	      "alternate"
+	      ShowName		      off
+	      GotoTag		      "PaCO2secondIC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product1"
+	      Ports		      [2, 1]
+	      Position		      [170, 245, 205, 280]
+	      Inputs		      "*/"
+	      CollapseMode	      "All dimensions"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      RndMeth		      "Floor"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      Ports		      [3, 1]
+	      Position		      [155, 97, 180, 133]
+	      ShowName		      off
+	      Inputs		      "--+"
+	      CollapseMode	      "All dimensions"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "T1+T2"
+	      Position		      [200, 40, 260, 90]
+	      Orientation	      "left"
+	      ShowName		      off
+	      Gain		      "T1+T2"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "PaCO2"
+	      Position		      [540, 89, 590, 101]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "T1+T2"
+	      SrcPort		      1
+	      Points		      [-65, 0; 0, 40]
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [0, 0; 45, 0]
+	      Branch {
+		Points			[0, -50]
+		DstBlock		"T1+T2"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Integrator1"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 50]
+		DstBlock		"PaCO2firstIC"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "1/(T1*T2)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "1/(T1*T2)"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Integrator1"
+	      SrcPort		      1
+	      Points		      [0, 0; 10, 0]
+	      Branch {
+		Points			[0, -70]
+		Branch {
+		  Points		  [0, -20; -365, 0; 0, 90]
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Branch {
+		  DstBlock		  "PaCo2secondIC"
+		  DstPort		  1
+		}
+	      }
+	      Branch {
+		Points			[40, 0]
+		DstBlock		"PaCO2"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "PACO2"
+	      SrcPort		      1
+	      Points		      [130, 0; 0, 30]
+	      DstBlock		      "PACO2 delay"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "PACO2 delay"
+	      SrcPort		      1
+	      Points		      [0, 0; 45, 0]
+	      Branch {
+		Points			[0, 50]
+		DstBlock		"PACO2_delayIC"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -65; -355, 0; 0, -70]
+		DstBlock		"Sum"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Product1"
+	      SrcPort		      1
+	      DstBlock		      "PACO2 delay"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Lung-Chemoreceptor Delay Volume"
+	      SrcPort		      1
+	      DstBlock		      "Product1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Q"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, -15]
+	      DstBlock		      "Product1"
+	      DstPort		      2
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "O2 Cardiovascular\nMixing and Convection\nEffects"
+	  Ports			  [3, 1]
+	  Position		  [220, 130, 355, 200]
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "O2 Cardiovascular\nMixing and Convection\nEffects"
+	    Location		    [334, 698, 1391, 1186]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Q"
+	      Position		      [80, 296, 125, 304]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "PAO2"
+	      Position		      [105, 224, 160, 236]
+	      NamePlacement	      "alternate"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Lung-Chemoreceptor Delay Volume"
+	      Position		      [65, 260, 110, 270]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "1/(T1*T2)"
+	      Position		      [285, 57, 350, 113]
+	      ShowName		      off
+	      Gain		      "1/(T1*T2)"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [385, 71, 415, 99]
+	      ShowName		      off
+	      InitialCondition	      "PaO2firstIC"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator1"
+	      Ports		      [1, 1]
+	      Position		      [455, 69, 485, 101]
+	      ShowName		      off
+	      InitialCondition	      "PaO2secondIC"
+	    }
+	    Block {
+	      BlockType		      VariableTransportDelay
+	      Name		      "PAO2 delay"
+	      Position		      [360, 222, 390, 253]
+	      NamePlacement	      "alternate"
+	      MaximumDelay	      "100"
+	      InitialOutput	      "PAO2_delayIC"
+	      MaximumPoints	      "22528"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "PAO2_delayIC"
+	      Position		      [370, 284, 475, 306]
+	      Orientation	      "left"
+	      ShowName		      off
+	      GotoTag		      "PAO2_delayIC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "PaO2firstIC"
+	      Position		      [265, 19, 370, 41]
+	      Orientation	      "left"
+	      ShowName		      off
+	      GotoTag		      "PaO2firstIC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "PaO2secondIC"
+	      Position		      [380, 141, 490, 159]
+	      Orientation	      "left"
+	      ShowName		      off
+	      GotoTag		      "PaO2secondIC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product1"
+	      Ports		      [2, 1]
+	      Position		      [260, 256, 305, 289]
+	      Inputs		      "*/"
+	      CollapseMode	      "All dimensions"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      RndMeth		      "Floor"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      Ports		      [3, 1]
+	      Position		      [235, 69, 260, 101]
+	      ShowName		      off
+	      Inputs		      "+--"
+	      CollapseMode	      "All dimensions"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "T1+T2"
+	      Position		      [285, 105, 345, 155]
+	      Orientation	      "left"
+	      ShowName		      off
+	      Gain		      "T1+T2"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "PaO2"
+	      Position		      [645, 145, 680, 155]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "1/(T1*T2)"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "1/(T1*T2)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [0, 0; 20, 0]
+	      Branch {
+		Points			[0, 0]
+		Branch {
+		  DstBlock		  "Integrator1"
+		  DstPort		  1
+		}
+		Branch {
+		  Points		  [0, 45]
+		  DstBlock		  "T1+T2"
+		  DstPort		  1
+		}
+	      }
+	      Branch {
+		Points			[0, -55]
+		DstBlock		"PaO2firstIC"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Integrator1"
+	      SrcPort		      1
+	      Points		      [40, 0; 0, 65]
+	      Branch {
+		DstBlock		"PaO2secondIC"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 25]
+		Branch {
+		  Points		  [-325, 0; 0, -90]
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Branch {
+		  Points		  [0, -25]
+		  DstBlock		  "PaO2"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "T1+T2"
+	      SrcPort		      1
+	      Points		      [-65, 0; 0, -35]
+	      DstBlock		      "Sum"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Product1"
+	      SrcPort		      1
+	      Points		      [0, -30]
+	      DstBlock		      "PAO2 delay"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "PAO2"
+	      SrcPort		      1
+	      DstBlock		      "PAO2 delay"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "PAO2 delay"
+	      SrcPort		      1
+	      Points		      [95, 0]
+	      Branch {
+		DstBlock		"PAO2_delayIC"
+		DstPort			1
+	      }
+	      Branch {
+		Labels			[1, 0]
+		Points			[0, -40; -295, 0; 0, -125]
+		DstBlock		"Sum"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Lung-Chemoreceptor Delay Volume"
+	      SrcPort		      1
+	      DstBlock		      "Product1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Q"
+	      SrcPort		      1
+	      Points		      [50, 0; 0, -20]
+	      DstBlock		      "Product1"
+	      DstPort		      2
+	    }
+	    Annotation {
+	      Name		      "Warning: Division by zero in block 'pneuma_cardiovascular/Respiratory_System/Gas Exchange/Cardiovascular Mixing and Convection/O2 Cardiovascular Mixing and Convection Effects/PAO2 Save Subsystem/Product1'."
+	      Position		      [514, 345]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "PaCO2"
+	  Position		  [405, 75, 425, 95]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "PaO2"
+	  Position		  [415, 155, 435, 175]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "CO2 Cardiovascular Mixing\nand Convection Effects"
+	  SrcPort		  1
+	  Points		  [0, -5]
+	  DstBlock		  "PaCO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "PACO2"
+	  SrcPort		  1
+	  Points		  [155, 0]
+	  DstBlock		  "CO2 Cardiovascular Mixing\nand Convection Effects"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Q"
+	  SrcPort		  1
+	  Points		  [140, 0]
+	  Branch {
+	    Points		    [15, 0]
+	    DstBlock		    "CO2 Cardiovascular Mixing\nand Convection Effects"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 55]
+	    DstBlock		    "O2 Cardiovascular\nMixing and Convection\nEffects"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Lung-Chemoreceptor Delay Volume"
+	  SrcPort		  1
+	  Points		  [45, 0]
+	  Branch {
+	    Points		    [25, 0]
+	    DstBlock		    "CO2 Cardiovascular Mixing\nand Convection Effects"
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [0, 80]
+	    DstBlock		    "O2 Cardiovascular\nMixing and Convection\nEffects"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "O2 Cardiovascular\nMixing and Convection\nEffects"
+	  SrcPort		  1
+	  DstBlock		  "PaO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "PAO2"
+	  SrcPort		  1
+	  DstBlock		  "O2 Cardiovascular\nMixing and Convection\nEffects"
+	  DstPort		  2
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "DEAD SPACE"
+      Ports		      [3, 2]
+      Position		      [150, 109, 250, 181]
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      System {
+	Name			"DEAD SPACE"
+	Location		[55, 86, 519, 420]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "PACO2"
+	  Position		  [35, 25, 55, 45]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "PAO2"
+	  Position		  [35, 180, 55, 200]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Flow"
+	  Position		  [35, 95, 55, 115]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "CO2 DEAD SPACE"
+	  Ports			  [2, 1]
+	  Position		  [185, 13, 260, 97]
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "CO2 DEAD SPACE"
+	    Location		    [552, 93, 1183, 641]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "PACO2"
+	      Position		      [90, 430, 110, 450]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Flow"
+	      Position		      [90, 230, 110, 250]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "CO2 Partial Pressure"
+	      Ports		      [0, 1]
+	      Position		      [65, 21, 100, 59]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      MaskPromptString	      "pulse begin|pulse end|initial value|final value"
+	      MaskStyleString	      "edit,edit,edit,edit"
+	      MaskTunableValueString  "on,on,on,on"
+	      MaskCallbackString      "|||"
+	      MaskEnableString	      "on,on,on,on"
+	      MaskVisibilityString    "on,on,on,on"
+	      MaskToolTipString	      "on,on,on,on"
+	      MaskVarAliasString      ",,,"
+	      MaskVariables	      "begin_time=@1;end_time=@2;init_value=@3;final_value=@4;"
+	      MaskDisplay	      "disp('pulse')\n"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "t_CO2_start|t_CO2_start+t_CO2_duration|PICO2|PICO2+PICO2_change"
+	      MaskTabNameString	      ",,,"
+	      System {
+		Name			"CO2 Partial Pressure"
+		Location		[69, 668, 1041, 1127]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add"
+		  Ports			  [2, 1]
+		  Position		  [770, 52, 800, 83]
+		  CollapseMode		  "All dimensions"
+		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^-10"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add1"
+		  Ports			  [2, 1]
+		  Position		  [475, 252, 505, 283]
+		  CollapseMode		  "All dimensions"
+		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^-10"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From"
+		  Position		  [280, 187, 340, 213]
+		  ShowName		  off
+		  CloseFcn		  "tagdialog Close"
+		  GotoTag		  "PaCO2"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "Gain"
+		  Position		  [555, 275, 575, 305]
+		  Gain			  "0.7"
+		  ParameterDataTypeMode	  "Inherit via internal rule"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "Gain1"
+		  Position		  [540, 185, 560, 215]
+		  Gain			  "0.08"
+		  ParameterDataTypeMode	  "Inherit via internal rule"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Hypercapnia_activation"
+		  Position		  [320, 79, 355, 111]
+		  Value			  "0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  If
+		  Name			  "If"
+		  Ports			  [1, 2]
+		  Position		  [360, 181, 460, 219]
+		  IfExpression		  "u1 > 38.87"
+		  ElseIfExpressions	  "u1<38.7"
+		  ShowElse		  off
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "If Action\nSubsystem"
+		  Ports			  [2, 1, 0, 0, 0, 0, 0, 1]
+		  Position		  [590, 172, 660, 208]
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  System {
+		    Name		    "If Action\nSubsystem"
+		    Location		    [342, 471, 840, 771]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    Position		    [75, 83, 105, 97]
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In2"
+		    Position		    [75, 123, 105, 137]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    }
+		    Block {
+		    BlockType		    ActionPort
+		    Name		    "Action Port"
+		    Position		    [170, 15, 229, 43]
+		    }
+		    Block {
+		    BlockType		    Integrator
+		    Name		    "Integrator"
+		    Ports		    [1, 1]
+		    Position		    [230, 80, 260, 110]
+		    }
+		    Block {
+		    BlockType		    Product
+		    Name		    "Product1"
+		    Ports		    [2, 1]
+		    Position		    [165, 81, 190, 114]
+		    CollapseMode	    "All dimensions"
+		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out1"
+		    Position		    [295, 88, 325, 102]
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    InitialOutput	    "0"
+		    }
+		    Line {
+		    SrcBlock		    "Product1"
+		    SrcPort		    1
+		    Points		    [0, -5]
+		    DstBlock		    "Integrator"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "In2"
+		    SrcPort		    1
+		    Points		    [15, 0; 0, -25]
+		    DstBlock		    "Product1"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    DstBlock		    "Product1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Integrator"
+		    SrcPort		    1
+		    DstBlock		    "Out1"
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "If Action\nSubsystem1"
+		  Ports			  [2, 1, 0, 0, 0, 0, 0, 1]
+		  Position		  [595, 262, 665, 298]
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  System {
+		    Name		    "If Action\nSubsystem1"
+		    Location		    [342, 471, 840, 771]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    Position		    [75, 78, 105, 92]
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In2"
+		    Position		    [75, 123, 105, 137]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    }
+		    Block {
+		    BlockType		    ActionPort
+		    Name		    "Action Port"
+		    Position		    [170, 15, 229, 43]
+		    }
+		    Block {
+		    BlockType		    Integrator
+		    Name		    "Integrator"
+		    Ports		    [1, 1]
+		    Position		    [240, 80, 270, 110]
+		    }
+		    Block {
+		    BlockType		    Product
+		    Name		    "Product1"
+		    Ports		    [2, 1]
+		    Position		    [185, 81, 215, 114]
+		    CollapseMode	    "All dimensions"
+		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out1"
+		    Position		    [295, 88, 325, 102]
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    InitialOutput	    "0"
+		    }
+		    Line {
+		    SrcBlock		    "Product1"
+		    SrcPort		    1
+		    Points		    [0, -5]
+		    DstBlock		    "Integrator"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "In2"
+		    SrcPort		    1
+		    Points		    [15, 0; 0, -25]
+		    DstBlock		    "Product1"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    Points		    [60, 0]
+		    DstBlock		    "Product1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Integrator"
+		    SrcPort		    1
+		    DstBlock		    "Out1"
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Isocapnia_activation"
+		  Position		  [490, 170, 520, 200]
+		  Value			  "0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [375, 42, 405, 73]
+		  CollapseMode		  "All dimensions"
+		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step"
+		  Position		  [95, 15, 125, 45]
+		  Time			  "begin_time"
+		  Before		  "init_value"
+		  After			  "final_value/8"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step1"
+		  Position		  [95, 60, 125, 90]
+		  Time			  "end_time"
+		  After			  "init_value-final_value"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step10"
+		  Position		  [205, 290, 235, 320]
+		  Time			  "begin_time+18"
+		  Before		  "init_value"
+		  After			  "final_value/8"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step2"
+		  Position		  [90, 105, 120, 135]
+		  Time			  "begin_time+3"
+		  Before		  "init_value"
+		  After			  "final_value/8"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step3"
+		  Position		  [90, 155, 120, 185]
+		  Time			  "begin_time+6"
+		  Before		  "init_value"
+		  After			  "final_value/8"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step4"
+		  Position		  [90, 200, 120, 230]
+		  Time			  "begin_time+9"
+		  Before		  "init_value"
+		  After			  "final_value/8"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step5"
+		  Position		  [90, 245, 120, 275]
+		  Time			  "begin_time+12"
+		  Before		  "init_value"
+		  After			  "final_value/8"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step6"
+		  Position		  [420, 230, 450, 260]
+		  Time			  "begin_time"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step7"
+		  Position		  [420, 275, 450, 305]
+		  Time			  "end_time"
+		  After			  "-1"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step8"
+		  Position		  [90, 290, 120, 320]
+		  Time			  "begin_time+14"
+		  Before		  "init_value"
+		  After			  "final_value/8"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step9"
+		  Position		  [150, 290, 180, 320]
+		  Time			  "begin_time+16"
+		  Before		  "init_value"
+		  After			  "final_value/8"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [9, 1]
+		  Position		  [265, 15, 285, 135]
+		  ShowName		  off
+		  Inputs		  "|+++++++++"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum1"
+		  Ports			  [2, 1]
+		  Position		  [710, 180, 730, 200]
+		  ShowName		  off
+		  IconShape		  "round"
+		  Inputs		  "|-+"
+		  CollapseMode		  "All dimensions"
+		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  Position		  [830, 63, 860, 77]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "From"
+		  SrcPort		  1
+		  DstBlock		  "If"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Add"
+		  SrcPort		  1
+		  Points		  [0, 0]
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Step6"
+		  SrcPort		  1
+		  Points		  [5, 0]
+		  DstBlock		  "Add1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Step7"
+		  SrcPort		  1
+		  Points		  [5, 0]
+		  DstBlock		  "Add1"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Sum1"
+		  SrcPort		  1
+		  Points		  [0, -115]
+		  DstBlock		  "Add"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "If"
+		  SrcPort		  1
+		  Points		  [0, -35; 160, 0]
+		  DstBlock		  "If Action\nSubsystem"
+		  DstPort		  ifaction
+		}
+		Line {
+		  SrcBlock		  "If"
+		  SrcPort		  2
+		  Points		  [0, 35; 165, 0]
+		  DstBlock		  "If Action\nSubsystem1"
+		  DstPort		  ifaction
+		}
+		Line {
+		  SrcBlock		  "Add1"
+		  SrcPort		  1
+		  Points		  [55, 0]
+		  Branch {
+		    DstBlock		    "If Action\nSubsystem1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -90]
+		    DstBlock		    "If Action\nSubsystem"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Isocapnia_activation"
+		  SrcPort		  1
+		  Points		  [0, 15]
+		  Branch {
+		    DstBlock		    "Gain1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 90]
+		    DstBlock		    "Gain"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "If Action\nSubsystem"
+		  SrcPort		  1
+		  DstBlock		  "Sum1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "If Action\nSubsystem1"
+		  SrcPort		  1
+		  Points		  [50, 0]
+		  DstBlock		  "Sum1"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Step"
+		  SrcPort		  1
+		  Points		  [120, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Step1"
+		  SrcPort		  1
+		  Points		  [120, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Step2"
+		  SrcPort		  1
+		  Points		  [125, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Step3"
+		  SrcPort		  1
+		  Points		  [125, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  4
+		}
+		Line {
+		  SrcBlock		  "Step4"
+		  SrcPort		  1
+		  Points		  [125, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  5
+		}
+		Line {
+		  SrcBlock		  "Step5"
+		  SrcPort		  1
+		  Points		  [125, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  6
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  Points		  [0, -25]
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Hypercapnia_activation"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "Add"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Step8"
+		  SrcPort		  1
+		  Points		  [5, 0; 0, -205]
+		  DstBlock		  "Sum"
+		  DstPort		  7
+		}
+		Line {
+		  SrcBlock		  "Step9"
+		  SrcPort		  1
+		  Points		  [0, -195]
+		  DstBlock		  "Sum"
+		  DstPort		  8
+		}
+		Line {
+		  SrcBlock		  "Step10"
+		  SrcPort		  1
+		  Points		  [10, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  9
+		}
+		Line {
+		  SrcBlock		  "Gain"
+		  SrcPort		  1
+		  DstBlock		  "If Action\nSubsystem1"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Gain1"
+		  SrcPort		  1
+		  DstBlock		  "If Action\nSubsystem"
+		  DstPort		  2
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(1)CO2"
+	      Ports		      [3, 1]
+	      Position		      [280, 32, 375, 88]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(1)CO2"
+		Location		[277, 606, 1023, 852]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "PICO2"
+		  Position		  [175, 64, 200, 76]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [80, 75, 100, 95]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(2)CO2"
+		  Position		  [175, 94, 200, 106]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead1"
+		  Position		  [470, 73, 555, 107]
+		  ShowName		  off
+		  Gain			  "1/Vdead1"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [255, 145, 280, 165]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead1CO2IC"
+		  Position		  [470, 140, 585, 160]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead1CO2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [580, 77, 605, 103]
+		  ShowName		  off
+		  InitialCondition	  "Dead1CO2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [400, 74, 430, 101]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [320, 70, 340, 90]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [235, 59, 260, 111]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(1)CO2"
+		  Position		  [680, 80, 700, 100]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [20, 0]
+		  Branch {
+		    Points		    [0, 70]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [95, 0; 0, -60]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "1/Vdead1"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [35, 0]
+		  Branch {
+		    Points		    [0, 0]
+		    Branch {
+		    Points		    [0, 60]
+		    DstBlock		    "Dead1CO2IC"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "Pd(1)CO2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    Points		    [0, -55; -350, 0; 0, 40]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "PICO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Pd(2)CO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(2)CO2"
+	      Ports		      [3, 1]
+	      Position		      [280, 119, 375, 181]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(2)CO2"
+		Location		[28, 376, 776, 639]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(1)CO2"
+		  Position		  [170, 55, 190, 75]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [40, 75, 60, 95]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(3)CO2"
+		  Position		  [170, 95, 190, 115]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead2"
+		  Position		  [450, 71, 530, 109]
+		  ShowName		  off
+		  Gain			  "1/Vdead2"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [210, 160, 235, 180]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead2CO2IC"
+		  Position		  [435, 139, 535, 161]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead2CO2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [555, 76, 585, 104]
+		  ShowName		  off
+		  InitialCondition	  "Dead2CO2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [390, 72, 420, 103]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [320, 70, 340, 90]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [235, 58, 260, 112]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(2)CO2"
+		  Position		  [660, 80, 680, 100]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [25, 0]
+		  Branch {
+		    DstBlock		    "Pd(2)CO2"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -60; -320, 0; 0, 45]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 60]
+		    DstBlock		    "Dead2CO2IC"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [130, 0; 0, -75]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [15, 0]
+		  Branch {
+		    Points		    [0, 85]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Pd(3)CO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Pd(1)CO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "1/Vdead2"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(3)CO2"
+	      Ports		      [3, 1]
+	      Position		      [280, 211, 375, 269]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(3)CO2"
+		Location		[69, 481, 808, 685]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(2)CO2"
+		  Position		  [185, 60, 205, 80]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [70, 75, 90, 95]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(4)CO2"
+		  Position		  [185, 90, 205, 110]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead3"
+		  Position		  [455, 71, 535, 109]
+		  ShowName		  off
+		  Gain			  "1/Vdead3"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [265, 150, 290, 170]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead3CO2IC"
+		  Position		  [460, 145, 550, 165]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead3CO2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [560, 75, 590, 105]
+		  ShowName		  off
+		  InitialCondition	  "Dead3CO2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [390, 71, 420, 104]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [320, 70, 340, 90]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [250, 60, 275, 110]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(3)CO2"
+		  Position		  [655, 80, 675, 100]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [65, 0; 0, -65]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [35, 0]
+		  Branch {
+		    Points		    [0, 75]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead3"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "1/Vdead3"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [25, 0]
+		  Branch {
+		    Points		    [0, -45; -325, 0; 0, 30]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Pd(3)CO2"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 65]
+		    DstBlock		    "Dead3CO2IC"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Pd(2)CO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Pd(4)CO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(4)CO2"
+	      Ports		      [3, 1]
+	      Position		      [280, 297, 375, 353]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(4)CO2"
+		Location		[46, 503, 810, 696]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(3)CO2"
+		  Position		  [180, 55, 200, 75]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [100, 75, 120, 95]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(5)CO2"
+		  Position		  [180, 95, 200, 115]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead4"
+		  Position		  [455, 71, 535, 109]
+		  ShowName		  off
+		  Gain			  "1/Vdead4"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [245, 145, 270, 165]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead4CO2IC"
+		  Position		  [450, 145, 555, 165]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead4CO2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [560, 77, 590, 103]
+		  ShowName		  off
+		  InitialCondition	  "Dead4CO2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [390, 73, 420, 102]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [320, 70, 340, 90]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [235, 57, 260, 113]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(4)CO2"
+		  Position		  [685, 80, 705, 100]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [85, 0; 0, -60]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [30, 0]
+		  Branch {
+		    Points		    [0, 70]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Pd(5)CO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Pd(3)CO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "1/Vdead4"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead4"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [40, 0]
+		  Branch {
+		    DstBlock		    "Pd(4)CO2"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 65]
+		    DstBlock		    "Dead4CO2IC"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -70; -350, 0; 0, 55]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		  }
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(5)CO2"
+	      Ports		      [3, 1]
+	      Position		      [280, 392, 375, 448]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(5)CO2"
+		Location		[42, 436, 809, 686]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(4)CO2"
+		  Position		  [180, 55, 200, 75]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [105, 75, 125, 95]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "PACO2"
+		  Position		  [180, 95, 200, 115]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead5"
+		  Position		  [455, 66, 535, 104]
+		  ShowName		  off
+		  Gain			  "1/Vdead5"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [235, 160, 260, 180]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead5CO2IC"
+		  Position		  [470, 154, 560, 176]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead5CO2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [600, 75, 620, 95]
+		  ShowName		  off
+		  InitialCondition	  "Dead5CO2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [365, 75, 390, 95]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [295, 70, 315, 90]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [235, 56, 260, 114]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(5)CO2"
+		  Position		  [685, 75, 705, 95]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [80, 0; 0, -80]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [25, 0]
+		  Branch {
+		    Points		    [0, 85]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead5"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "1/Vdead5"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [35, 0; 0, 0]
+		  Branch {
+		    Points		    [0, 0]
+		    Branch {
+		    Points		    [0, -50; -385, 0; 0, 40]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "Pd(5)CO2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    Points		    [0, 80]
+		    DstBlock		    "Dead5CO2IC"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Pd(4)CO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "PACO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Pd5CO2"
+	      Position		      [475, 410, 495, 430]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Pd(4)CO2"
+	      SrcPort		      1
+	      Points		      [35, 0; 0, 50; -170, 0]
+	      Branch {
+		Points			[-25, 0; 0, -115]
+		DstBlock		"Pd(3)CO2"
+		DstPort			3
+	      }
+	      Branch {
+		Points			[0, 25]
+		DstBlock		"Pd(5)CO2"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Pd(3)CO2"
+	      SrcPort		      1
+	      Points		      [35, 0; 0, 50; -170, 0]
+	      Branch {
+		Points			[0, 15]
+		DstBlock		"Pd(4)CO2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[-40, 0; 0, -120]
+		DstBlock		"Pd(2)CO2"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Pd(2)CO2"
+	      SrcPort		      1
+	      Points		      [35, 0; 0, 55; -170, 0]
+	      Branch {
+		Points			[0, 15]
+		DstBlock		"Pd(3)CO2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[-15, 0; 0, -125]
+		DstBlock		"Pd(1)CO2"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Pd(1)CO2"
+	      SrcPort		      1
+	      Points		      [35, 0; 0, 50; -150, 0]
+	      DstBlock		      "Pd(2)CO2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Flow"
+	      SrcPort		      1
+	      Points		      [0, 0; 45, 0]
+	      Branch {
+		Points			[0, -90]
+		Branch {
+		  Points		  [0, -90]
+		  DstBlock		  "Pd(1)CO2"
+		  DstPort		  2
+		}
+		Branch {
+		  DstBlock		  "Pd(2)CO2"
+		  DstPort		  2
+		}
+	      }
+	      Branch {
+		Points			[0, 85]
+		Branch {
+		  DstBlock		  "Pd(4)CO2"
+		  DstPort		  2
+		}
+		Branch {
+		  Points		  [0, 95]
+		  DstBlock		  "Pd(5)CO2"
+		  DstPort		  2
+		}
+	      }
+	      Branch {
+		DstBlock		"Pd(3)CO2"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "PACO2"
+	      SrcPort		      1
+	      DstBlock		      "Pd(5)CO2"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Pd(5)CO2"
+	      SrcPort		      1
+	      Points		      [35, 0]
+	      Branch {
+		DstBlock		"Pd5CO2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -35; -165, 0; 0, -40]
+		DstBlock		"Pd(4)CO2"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "CO2 Partial Pressure"
+	      SrcPort		      1
+	      DstBlock		      "Pd(1)CO2"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "O2 DEAD SPACE"
+	  Ports			  [2, 1]
+	  Position		  [185, 129, 260, 211]
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "O2 DEAD SPACE"
+	    Location		    [532, 328, 1257, 1038]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Flow"
+	      Position		      [120, 235, 140, 255]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "PAO2"
+	      Position		      [125, 430, 145, 450]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "O2 Partial Pressure"
+	      Ports		      [0, 1]
+	      Position		      [65, 29, 105, 61]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      MaskPromptString	      "pulse begin|pulse end|initial value|final value"
+	      MaskStyleString	      "edit,edit,edit,edit"
+	      MaskTunableValueString  "on,on,on,on"
+	      MaskCallbackString      "|||"
+	      MaskEnableString	      "on,on,on,on"
+	      MaskVisibilityString    "on,on,on,on"
+	      MaskToolTipString	      "on,on,on,on"
+	      MaskVarAliasString      ",,,"
+	      MaskVariables	      "begin_time=@1;end_time=@2;init_value=@3;final_value=@4;"
+	      MaskDisplay	      "disp('pulse')\n"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "t_O2_start|t_O2_start+t_O2_duration|PIO2|PIO2+PIO2_change"
+	      MaskTabNameString	      ",,,"
+	      System {
+		Name			"O2 Partial Pressure"
+		Location		[537, 344, 1128, 1048]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Step
+		  Name			  "Step"
+		  Position		  [105, 50, 135, 80]
+		  Time			  "begin_time"
+		  Before		  "init_value"
+		  After			  "final_value"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Step
+		  Name			  "Step1"
+		  Position		  [105, 110, 135, 140]
+		  Time			  "end_time"
+		  After			  "init_value-final_value"
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [220, 67, 230, 123]
+		  ShowName		  off
+		  Inputs		  "|++"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  Position		  [355, 88, 385, 102]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Step1"
+		  SrcPort		  1
+		  Points		  [65, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Step"
+		  SrcPort		  1
+		  Points		  [65, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(1)O2"
+	      Ports		      [3, 1]
+	      Position		      [335, 37, 425, 93]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(1)O2"
+		Location		[97, 386, 903, 608]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "PIO2"
+		  Position		  [210, 55, 230, 75]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [100, 75, 120, 95]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(2)O2"
+		  Position		  [210, 95, 230, 115]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead1"
+		  Position		  [455, 66, 535, 104]
+		  ShowName		  off
+		  Gain			  "1/Vdead1"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [270, 150, 295, 170]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead1O2IC"
+		  Position		  [545, 138, 630, 162]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead1O2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [585, 75, 605, 95]
+		  ShowName		  off
+		  InitialCondition	  "Dead1O2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [405, 75, 430, 95]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [340, 70, 360, 90]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [275, 56, 300, 114]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(1)O2"
+		  Position		  [735, 75, 755, 95]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Pd(2)O2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "PIO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [65, 0]
+		  Branch {
+		    Points		    [0, 0]
+		    Branch {
+		    Points		    [0, -55; -355, 0; 0, 45]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "Pd(1)O2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    Points		    [0, 65]
+		    DstBlock		    "Dead1O2IC"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "1/Vdead1"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [20, 0]
+		  Branch {
+		    Points		    [0, 75]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [70, 0; 0, -70]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(2)O2"
+	      Ports		      [3, 1]
+	      Position		      [335, 127, 425, 183]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(2)O2"
+		Location		[94, 490, 718, 736]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(1)O2"
+		  Position		  [135, 55, 155, 75]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [50, 75, 70, 95]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(3)O2"
+		  Position		  [135, 95, 155, 115]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead2"
+		  Position		  [385, 66, 465, 104]
+		  ShowName		  off
+		  Gain			  "1/Vdead2"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [190, 150, 215, 170]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead2O2IC"
+		  Position		  [395, 165, 490, 185]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead2O2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [480, 75, 500, 95]
+		  ShowName		  off
+		  InitialCondition	  "Dead2O2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [330, 75, 355, 95]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [265, 70, 285, 90]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [195, 56, 220, 114]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(2)O2"
+		  Position		  [565, 75, 585, 95]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [85, 0; 0, -70]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [0, 0; 20, 0]
+		  Branch {
+		    Points		    [0, 75]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [0, 0; 30, 0]
+		  Branch {
+		    Points		    [0, 90]
+		    DstBlock		    "Dead2O2IC"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -55; -295, 0; 0, 45]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Pd(2)O2"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Pd(1)O2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Pd(3)O2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "1/Vdead2"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(3)O2"
+	      Ports		      [3, 1]
+	      Position		      [335, 216, 425, 274]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(3)O2"
+		Location		[88, 501, 757, 742]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(2)O2"
+		  Position		  [160, 60, 180, 80]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [60, 80, 80, 100]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(4)O2"
+		  Position		  [160, 100, 180, 120]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead3"
+		  Position		  [405, 71, 485, 109]
+		  ShowName		  off
+		  Gain			  "1/Vdead3"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [230, 155, 255, 175]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead3O2IC"
+		  Position		  [425, 144, 510, 166]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead3O2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [520, 80, 540, 100]
+		  ShowName		  off
+		  InitialCondition	  "Dead3O2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [355, 80, 380, 100]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [285, 75, 305, 95]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [225, 62, 250, 118]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(3)O2"
+		  Position		  [595, 80, 615, 100]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Pd(4)O2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Pd(2)O2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [25, 0]
+		  Branch {
+		    Points		    [0, 65]
+		    DstBlock		    "Dead3O2IC"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 0]
+		    Branch {
+		    Points		    [0, -55; -305, 0; 0, 45]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "Pd(3)O2"
+		    DstPort		    1
+		    }
+		  }
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead3"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [0, 0; 10, 0]
+		  Branch {
+		    Points		    [0, 75]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [65, 0; 0, -70]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "1/Vdead3"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(4)O2"
+	      Ports		      [3, 1]
+	      Position		      [335, 301, 425, 359]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(4)O2"
+		Location		[46, 725, 697, 988]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(3)O2"
+		  Position		  [150, 55, 170, 75]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [55, 75, 75, 95]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(5)O2"
+		  Position		  [150, 95, 170, 115]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead4"
+		  Position		  [405, 66, 485, 104]
+		  ShowName		  off
+		  Gain			  "1/Vdead4"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [200, 150, 225, 170]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead4O2IC"
+		  Position		  [440, 129, 515, 151]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead4O2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [515, 75, 535, 95]
+		  ShowName		  off
+		  InitialCondition	  "Dead4O2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [350, 75, 375, 95]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [300, 70, 320, 90]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [220, 57, 245, 113]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(4)O2"
+		  Position		  [575, 75, 595, 95]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [105, 0]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [0, 0; 25, 0]
+		  Branch {
+		    Points		    [0, 75]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead4"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [0, 0; 5, 0]
+		  Branch {
+		    Points		    [0, 0]
+		    Branch {
+		    Points		    [0, -55; -275, 0; 0, 45]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "Pd(4)O2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    Points		    [0, 55]
+		    DstBlock		    "Dead4O2IC"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Pd(3)O2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Pd(5)O2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "1/Vdead4"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Pd(5)O2"
+	      Ports		      [3, 1]
+	      Position		      [335, 397, 425, 453]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Pd(5)O2"
+		Location		[49, 485, 708, 712]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Pd(4)O2"
+		  Position		  [155, 55, 175, 75]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Flow"
+		  Position		  [45, 75, 65, 95]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "PAO2"
+		  Position		  [155, 95, 175, 115]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/Vdead5"
+		  Position		  [395, 71, 475, 109]
+		  ShowName		  off
+		  Gain			  "1/Vdead5"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs (v.t)"
+		  Position		  [160, 150, 185, 170]
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Dead5O2IC"
+		  Position		  [370, 144, 445, 166]
+		  Orientation		  "left"
+		  ShowName		  off
+		  GotoTag		  "Dead5O2IC"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator"
+		  Ports			  [1, 1]
+		  Position		  [505, 80, 525, 100]
+		  ShowName		  off
+		  InitialCondition	  "Dead5O2IC"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [345, 74, 370, 101]
+		  ShowName		  off
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [285, 70, 305, 90]
+		  ShowName		  off
+		  Inputs		  "-+"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [225, 57, 250, 113]
+		  ShowName		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Pd(5)O2"
+		  Position		  [580, 80, 600, 100]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Sum"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "PAO2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Pd(4)O2"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Integrator"
+		  SrcPort		  1
+		  Points		  [25, 0]
+		  Branch {
+		    DstBlock		    "Pd(5)O2"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 65]
+		    DstBlock		    "Dead5O2IC"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -75; -285, 0]
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "1/Vdead5"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Flow"
+		  SrcPort		  1
+		  Points		  [20, 0]
+		  Branch {
+		    Points		    [0, 75]
+		    DstBlock		    "Abs (v.t)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Abs (v.t)"
+		  SrcPort		  1
+		  Points		  [130, 0; 0, -65]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "1/Vdead5"
+		  SrcPort		  1
+		  DstBlock		  "Integrator"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Pd5O2"
+	      Position		      [535, 415, 555, 435]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Pd(4)O2"
+	      SrcPort		      1
+	      Points		      [70, 0; 0, 50; -210, 0]
+	      Branch {
+		Points			[-10, 0; 0, -115]
+		DstBlock		"Pd(3)O2"
+		DstPort			3
+	      }
+	      Branch {
+		Points			[0, 25]
+		DstBlock		"Pd(5)O2"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Pd(3)O2"
+	      SrcPort		      1
+	      Points		      [70, 0; 0, 50; -195, 0]
+	      Branch {
+		Points			[0, 15]
+		DstBlock		"Pd(4)O2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[-40, 0; 0, -120]
+		DstBlock		"Pd(2)O2"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Pd(2)O2"
+	      SrcPort		      1
+	      Points		      [70, 0; 0, 55; -195, 0]
+	      Branch {
+		Points			[0, 15]
+		DstBlock		"Pd(3)O2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[-15, 0; 0, -125]
+		DstBlock		"Pd(1)O2"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Pd(1)O2"
+	      SrcPort		      1
+	      Points		      [70, 0; 0, 50; -195, 0; 0, 20]
+	      DstBlock		      "Pd(2)O2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "PAO2"
+	      SrcPort		      1
+	      Points		      [0, 5]
+	      DstBlock		      "Pd(5)O2"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Flow"
+	      SrcPort		      1
+	      Points		      [5, 0; 70, 0]
+	      Branch {
+		Points			[0, 85]
+		Branch {
+		  DstBlock		  "Pd(4)O2"
+		  DstPort		  2
+		}
+		Branch {
+		  Points		  [0, 95]
+		  DstBlock		  "Pd(5)O2"
+		  DstPort		  2
+		}
+	      }
+	      Branch {
+		Points			[0, -90]
+		Branch {
+		  DstBlock		  "Pd(2)O2"
+		  DstPort		  2
+		}
+		Branch {
+		  Points		  [0, -90]
+		  DstBlock		  "Pd(1)O2"
+		  DstPort		  2
+		}
+	      }
+	      Branch {
+		DstBlock		"Pd(3)O2"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Pd(5)O2"
+	      SrcPort		      1
+	      Points		      [70, 0]
+	      Branch {
+		DstBlock		"Pd5O2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -35; -180, 0]
+		DstBlock		"Pd(4)O2"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "O2 Partial Pressure"
+	      SrcPort		      1
+	      DstBlock		      "Pd(1)O2"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Pd5CO2"
+	  Position		  [330, 45, 350, 65]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Pd5O2"
+	  Position		  [335, 160, 355, 180]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "PACO2"
+	  SrcPort		  1
+	  DstBlock		  "CO2 DEAD SPACE"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "PAO2"
+	  SrcPort		  1
+	  DstBlock		  "O2 DEAD SPACE"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "CO2 DEAD SPACE"
+	  SrcPort		  1
+	  DstBlock		  "Pd5CO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "O2 DEAD SPACE"
+	  SrcPort		  1
+	  DstBlock		  "Pd5O2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Flow"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  Branch {
+	    Points		    [0, -30]
+	    DstBlock		    "CO2 DEAD SPACE"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 45]
+	    DstBlock		    "O2 DEAD SPACE"
+	    DstPort		    1
+	  }
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Dissociation"
+      Ports		      [2, 3]
+      Position		      [420, 401, 595, 499]
+      ForegroundColor	      "blue"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      System {
+	Name			"Dissociation"
+	Location		[546, 411, 1433, 1079]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "PACO2"
+	  Position		  [40, 53, 70, 67]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "PAO2"
+	  Position		  [40, 123, 70, 137]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "100"
+	  Position		  [485, 295, 525, 325]
+	  ShowName		  off
+	  Gain			  "100"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "C1*Z"
+	  Position		  [560, 175, 620, 205]
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Gain			  "C1*Z"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "CO2 Fcn -14 blocks"
+	  Position		  [245, 62, 450, 98]
+	  Expr			  "(u(1) * (1+ u(2) * beta2)/((u(2) * alpha2 +1) * K2) )^(1/a2) / ( (u(1) * (1+ u(2) * beta2)/((1+ u(2) * alpha2 ) * K2) )^(1/a2)  +1) * C2*Z"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux"
+	  Ports			  [2, 1]
+	  Position		  [165, 44, 170, 111]
+	  ShowName		  off
+	  Inputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "O2 Fcn -13 blocks"
+	  Position		  [255, 172, 445, 208]
+	  Expr			  "(u(2) * (1+ u(1) * beta1)/(( 1+u(1) * alpha1 ) * K1) )^(1/a1) / ( (u(2) * (1+ u(1) * beta1)/(( 1+u(1) * alpha1 ) * K1) )^(1/a1)   +1)"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "SAO2 Saturation"
+	  Position		  [450, 245, 480, 275]
+	  Orientation		  "down"
+	  ShowName		  off
+	  UpperLimit		  "5"
+	  LowerLimit		  "-5"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "CaCO2"
+	  Position		  [710, 73, 740, 87]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "SAO2"
+	  Position		  [705, 303, 735, 317]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "CaO2"
+	  Position		  [700, 183, 730, 197]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "CO2 Fcn -14 blocks"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "CaCO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "C1*Z"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "CaO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "O2 Fcn -13 blocks"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    DstBlock		    "C1*Z"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "SAO2 Saturation"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "PACO2"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Mux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "PAO2"
+	  SrcPort		  1
+	  Points		  [50, 0; 0, -35]
+	  DstBlock		  "Mux"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "100"
+	  SrcPort		  1
+	  DstBlock		  "SAO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "SAO2 Saturation"
+	  SrcPort		  1
+	  Points		  [0, 30]
+	  DstBlock		  "100"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Mux"
+	  SrcPort		  1
+	  Points		  [0, 0; 30, 0]
+	  Branch {
+	    DstBlock		    "CO2 Fcn -14 blocks"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 110]
+	    DstBlock		    "O2 Fcn -13 blocks"
+	    DstPort		    1
+	  }
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "GAS EXCHANGE\nIN THE LUNGS"
+      Ports		      [9, 2]
+      Position		      [155, 331, 250, 519]
+      ForegroundColor	      "green"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Port {
+	PortNumber		1
+	Name			"PACO2"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		2
+	Name			"PAO2"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      System {
+	Name			"GAS EXCHANGE\nIN THE LUNGS"
+	Location		[464, 93, 1022, 654]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "CaCO2"
+	  Position		  [140, 60, 160, 80]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "CVCO2"
+	  Position		  [85, 95, 105, 115]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Pd5CO2"
+	  Position		  [140, 130, 160, 150]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Pd5O2"
+	  Position		  [145, 475, 165, 495]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Flow"
+	  Position		  [140, 200, 160, 220]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Vt - Tidal Volume"
+	  Position		  [80, 165, 100, 185]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Q\n"
+	  Position		  [80, 235, 100, 255]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "CVO2"
+	  Position		  [85, 440, 105, 460]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "CaO2"
+	  Position		  [145, 405, 165, 425]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "CO2 Gas Exchange\nin the Lungs"
+	  Ports			  [6, 1]
+	  Position		  [290, 45, 400, 270]
+	  NamePlacement		  "alternate"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "CO2 Gas Exchange\nin the Lungs"
+	    Location		    [258, 288, 1117, 661]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "CaCO2"
+	      Position		      [25, 195, 45, 215]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "CVCO2"
+	      Position		      [25, 165, 45, 185]
+	      NamePlacement	      "alternate"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Pd5CO2"
+	      Position		      [25, 80, 45, 100]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Vt - Tidal Volume"
+	      Position		      [30, 290, 50, 310]
+	      NamePlacement	      "alternate"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Flow"
+	      Position		      [25, 120, 45, 140]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Q\n"
+	      Position		      [25, 240, 45, 260]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn -11 blocks"
+	      Position		      [325, 175, 385, 205]
+	      Expr		      "(((u(2) >=0) * u(2) * u(1) + (u(2) <0) * 0 ) + (u(3) - u(4)) *u(5) * ( lambda*(1-s) ) )/( u(6)+VLCO2 )"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [490, 180, 510, 200]
+	      ShowName		      off
+	      InitialCondition	      "PACO2IC"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux"
+	      Ports		      [6, 1]
+	      Position		      [240, 92, 245, 278]
+	      ShowName		      off
+	      Inputs		      "6"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "PACO2IC"
+	      Position		      [430, 284, 510, 306]
+	      Orientation	      "left"
+	      ShowName		      off
+	      GotoTag		      "PACO2IC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "sum1"
+	      Ports		      [2, 1]
+	      Position		      [110, 69, 135, 96]
+	      ShowName		      off
+	      Inputs		      "-+"
+	      CollapseMode	      "All dimensions"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "PACO2"
+	      Position		      [570, 180, 590, 200]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Q\n"
+	      SrcPort		      1
+	      Points		      [85, 0; 0, -20]
+	      DstBlock		      "Mux"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "CVCO2"
+	      SrcPort		      1
+	      Points		      [175, 0]
+	      DstBlock		      "Mux"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "CaCO2"
+	      SrcPort		      1
+	      Points		      [175, 0]
+	      DstBlock		      "Mux"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Fcn -11 blocks"
+	      SrcPort		      1
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [10, 0]
+	      Branch {
+		DstBlock		"PACO2IC"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"PACO2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -130; -430, 0]
+		DstBlock		"sum1"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Pd5CO2"
+	      SrcPort		      1
+	      DstBlock		      "sum1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Mux"
+	      SrcPort		      1
+	      Points		      [0, 5]
+	      DstBlock		      "Fcn -11 blocks"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "sum1"
+	      SrcPort		      1
+	      Points		      [35, 0; 0, 25]
+	      DstBlock		      "Mux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Flow"
+	      SrcPort		      1
+	      Points		      [80, 0; 0, 10]
+	      DstBlock		      "Mux"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Vt - Tidal Volume"
+	      SrcPort		      1
+	      Points		      [120, 0; 0, -40]
+	      DstBlock		      "Mux"
+	      DstPort		      6
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "O2 Gas\nExchange in the\nLungs"
+	  Ports			  [6, 1]
+	  Position		  [290, 284, 400, 511]
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "O2 Gas\nExchange in the\nLungs"
+	    Location		    [356, 398, 1306, 903]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Vt - Tidal Volume"
+	      Position		      [35, 315, 55, 335]
+	      NamePlacement	      "alternate"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Flow"
+	      Position		      [35, 110, 55, 130]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Q"
+	      Position		      [35, 170, 55, 190]
+	      NamePlacement	      "alternate"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "CaO2"
+	      Position		      [35, 255, 55, 275]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "CVO2"
+	      Position		      [35, 200, 55, 220]
+	      NamePlacement	      "alternate"
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Pd5O2"
+	      Position		      [35, 65, 55, 85]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn -11 blocks"
+	      Position		      [355, 181, 430, 209]
+	      Expr		      "(((u(2) >=0) * u(2) * u(1) + (u(2) <0) * 0 ) + (u(4) - u(5)) *u(3) * ( lambda*(1-s) ) )/( u(6)+VLO2 )"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [515, 185, 535, 205]
+	      ShowName		      off
+	      InitialCondition	      "PAO2IC"
+	      LimitOutput	      on
+	      LowerSaturationLimit    "0"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux"
+	      Ports		      [6, 1]
+	      Position		      [270, 102, 275, 288]
+	      ShowName		      off
+	      Inputs		      "6"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "PAO2IC"
+	      Position		      [465, 304, 550, 326]
+	      Orientation	      "left"
+	      ShowName		      off
+	      GotoTag		      "PAO2IC"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum2"
+	      Ports		      [2, 1]
+	      Position		      [125, 52, 155, 83]
+	      ShowName		      off
+	      Inputs		      "-+"
+	      CollapseMode	      "All dimensions"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "PAO2"
+	      Position		      [600, 185, 620, 205]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [0, 0; 30, 0]
+	      Branch {
+		Points			[0, 0]
+		DstBlock		"PAO2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 120]
+		DstBlock		"PAO2IC"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -155; -480, 0; 0, 20]
+		DstBlock		"Sum2"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Fcn -11 blocks"
+	      SrcPort		      1
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Pd5O2"
+	      SrcPort		      1
+	      DstBlock		      "Sum2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Mux"
+	      SrcPort		      1
+	      DstBlock		      "Fcn -11 blocks"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum2"
+	      SrcPort		      1
+	      Points		      [45, 0; 0, 50]
+	      DstBlock		      "Mux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Flow"
+	      SrcPort		      1
+	      Points		      [95, 0; 0, 30]
+	      DstBlock		      "Mux"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Q"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "CVO2"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "CaO2"
+	      SrcPort		      1
+	      Points		      [95, 0; 0, -25]
+	      DstBlock		      "Mux"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "Vt - Tidal Volume"
+	      SrcPort		      1
+	      Points		      [150, 0; 0, -55]
+	      DstBlock		      "Mux"
+	      DstPort		      6
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "PACO2"
+	  Position		  [450, 150, 470, 170]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "PAO2"
+	  Position		  [445, 390, 465, 410]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "CO2 Gas Exchange\nin the Lungs"
+	  SrcPort		  1
+	  DstBlock		  "PACO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "O2 Gas\nExchange in the\nLungs"
+	  SrcPort		  1
+	  DstBlock		  "PAO2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "CaCO2"
+	  SrcPort		  1
+	  DstBlock		  "CO2 Gas Exchange\nin the Lungs"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "CVCO2"
+	  SrcPort		  1
+	  DstBlock		  "CO2 Gas Exchange\nin the Lungs"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Pd5CO2"
+	  SrcPort		  1
+	  DstBlock		  "CO2 Gas Exchange\nin the Lungs"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Vt - Tidal Volume"
+	  SrcPort		  1
+	  Points		  [0, 0; 120, 0]
+	  Branch {
+	    Points		    [0, 135]
+	    DstBlock		    "O2 Gas\nExchange in the\nLungs"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "CO2 Gas Exchange\nin the Lungs"
+	    DstPort		    4
+	  }
+	}
+	Line {
+	  SrcBlock		  "Flow"
+	  SrcPort		  1
+	  Points		  [25, 0; 50, 0]
+	  Branch {
+	    Points		    [0, 135]
+	    DstBlock		    "O2 Gas\nExchange in the\nLungs"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "CO2 Gas Exchange\nin the Lungs"
+	    DstPort		    5
+	  }
+	}
+	Line {
+	  SrcBlock		  "Q\n"
+	  SrcPort		  1
+	  Points		  [0, 0; 145, 0]
+	  Branch {
+	    Points		    [0, 135]
+	    DstBlock		    "O2 Gas\nExchange in the\nLungs"
+	    DstPort		    3
+	  }
+	  Branch {
+	    DstBlock		    "CO2 Gas Exchange\nin the Lungs"
+	    DstPort		    6
+	  }
+	}
+	Line {
+	  SrcBlock		  "CaO2"
+	  SrcPort		  1
+	  DstBlock		  "O2 Gas\nExchange in the\nLungs"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "CVO2"
+	  SrcPort		  1
+	  DstBlock		  "O2 Gas\nExchange in the\nLungs"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Pd5O2"
+	  SrcPort		  1
+	  DstBlock		  "O2 Gas\nExchange in the\nLungs"
+	  DstPort		  6
+	}
+      }
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto1"
+      Position		      [630, 422, 690, 438]
+      NamePlacement	      "alternate"
+      ShowName		      off
+      GotoTag		      "SAO2"
+      TagVisibility	      "global"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto6"
+      Position		      [660, 192, 710, 208]
+      ShowName		      off
+      GotoTag		      "PaCO2"
+      TagVisibility	      "global"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Lung-Chemo Volume"
+      Position		      [330, 159, 375, 181]
+      Value		      "0.588"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "SubSystem"
+      Ports		      []
+      Position		      [31, 22, 135, 81]
+      ShowName		      off
+      OpenFcn		      "Gas_Exchange_IC"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskDisplay	      "disp('\"double click here\"\\n to load \\nGas_Exchange \\ninitial values');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"SubSystem"
+	Location		[154, 176, 652, 476]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+      }
+    }
+    Block {
+      BlockType		      Fcn
+      Name		      "VARIATION OF CEREBRAL\nBLOOD FLOW W/ PaCO2\nFcn"
+      Position		      [715, 101, 780, 139]
+      ForegroundColor	      "orange"
+      Expr		      "(sqrt(abs( ((1+(u - 40) * .03 ) * (-QdBo))^2 - ( MRbCO2-h) * 4*0.03*QdBo/SCO2 ) )- (1+(u - 40) * .03 ) * (-QdBo)) *0.5"
+      Port {
+	PortNumber		1
+	Name			"Qb"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "PaCO2"
+      Position		      [640, 143, 670, 157]
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "PaO2"
+      Position		      [645, 223, 675, 237]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "SAO2"
+      Position		      [645, 443, 675, 457]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "PbCO2"
+      Position		      [1015, 178, 1045, 192]
+      Port		      "4"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "CaO2"
+      Position		      [645, 493, 675, 507]
+      Port		      "5"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Line {
+      SrcBlock		      "SI Sleep Wake State Index"
+      SrcPort		      1
+      Points		      [15, 0]
+      Branch {
+	DstBlock		"BODY TISSUES\nCOMPARTMENT"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"BRAIN COMPARTMENT"
+	DstPort			3
+      }
+    }
+    Line {
+      Name		      "PaCO2"
+      SrcBlock		      "Cardiovascular\nMixing and Convection"
+      SrcPort		      1
+      Points		      [15, 0]
+      Branch {
+	Points			[0, -35]
+	DstBlock		"PaCO2"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 0]
+	Branch {
+	  DstBlock		  "BRAIN COMPARTMENT"
+	  DstPort		  2
+	}
+	Branch {
+	  Points		  [10, 0; 0, 15]
+	  DstBlock		  "Goto6"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      Name		      "PbCO2"
+      SrcBlock		      "BRAIN COMPARTMENT"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"PbCO2"
+	DstPort			1
+      }
+      Branch {
+	Labels			[-1, 0]
+	Points			[0, -105; -280, 0]
+	DstBlock		"VARIATION OF CEREBRAL\nBLOOD FLOW W/ PaCO2\nFcn"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "DEAD SPACE"
+      SrcPort		      1
+      Points		      [10, 0; 0, 90; -160, 0; 0, 165]
+      DstBlock		      "GAS EXCHANGE\nIN THE LUNGS"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "DEAD SPACE"
+      SrcPort		      2
+      Points		      [0, 40; -165, 0; 0, 200]
+      DstBlock		      "GAS EXCHANGE\nIN THE LUNGS"
+      DstPort		      4
+    }
+    Line {
+      Name		      "PAO2"
+      Labels		      [0, 0]
+      SrcBlock		      "GAS EXCHANGE\nIN THE LUNGS"
+      SrcPort		      2
+      Points		      [50, 0]
+      Branch {
+	Points			[0, -255]
+	Branch {
+	  Points		  [0, -140; -215, 0; 0, 65]
+	  DstBlock		  "DEAD SPACE"
+	  DstPort		  2
+	}
+	Branch {
+	  DstBlock		  "Cardiovascular\nMixing and Convection"
+	  DstPort		  3
+	}
+      }
+      Branch {
+	DstBlock		"Dissociation"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Vt - Tidal Volume"
+      SrcPort		      1
+      DstBlock		      "GAS EXCHANGE\nIN THE LUNGS"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Air Flow"
+      SrcPort		      1
+      Points		      [15, 0]
+      Branch {
+	DstBlock		"DEAD SPACE"
+	DstPort			3
+      }
+      Branch {
+	Points			[0, 255]
+	DstBlock		"GAS EXCHANGE\nIN THE LUNGS"
+	DstPort			5
+      }
+    }
+    Line {
+      Name		      "Qb"
+      Labels		      [0, 0]
+      SrcBlock		      "VARIATION OF CEREBRAL\nBLOOD FLOW W/ PaCO2\nFcn"
+      SrcPort		      1
+      Points		      [30, 0]
+      DstBlock		      "BRAIN COMPARTMENT"
+      DstPort		      1
+    }
+    Line {
+      Name		      "PACO2"
+      Labels		      [0, 0]
+      SrcBlock		      "GAS EXCHANGE\nIN THE LUNGS"
+      SrcPort		      1
+      Points		      [35, 0]
+      Branch {
+	Points			[0, -185]
+	Branch {
+	  Points		  [0, -100; -185, 0; 0, 25]
+	  DstBlock		  "DEAD SPACE"
+	  DstPort		  1
+	}
+	Branch {
+	  DstBlock		  "Cardiovascular\nMixing and Convection"
+	  DstPort		  2
+	}
+      }
+      Branch {
+	Points			[0, 45]
+	DstBlock		"Dissociation"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Lung-Chemo Volume"
+      SrcPort		      1
+      DstBlock		      "Cardiovascular\nMixing and Convection"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blood Flow"
+      SrcPort		      1
+      Points		      [-135, 0]
+      Branch {
+	DstBlock		"Blood Flow to Tissues"
+	DstPort			1
+      }
+      Branch {
+	Points			[-430, 0]
+	Branch {
+	  Points		  [-275, 0; 0, -145]
+	  DstBlock		  "GAS EXCHANGE\nIN THE LUNGS"
+	  DstPort		  7
+	}
+	Branch {
+	  Points		  [0, -365]
+	  DstBlock		  "Cardiovascular\nMixing and Convection"
+	  DstPort		  4
+	}
+      }
+    }
+    Line {
+      Name		      "PaO2"
+      SrcBlock		      "Cardiovascular\nMixing and Convection"
+      SrcPort		      2
+      DstBlock		      "PaO2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blood Flow to Tissues"
+      SrcPort		      1
+      Points		      [0, -20]
+      DstBlock		      "BODY TISSUES\nCOMPARTMENT"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Dissociation"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[0, -105; -470, 0]
+	DstBlock		"GAS EXCHANGE\nIN THE LUNGS"
+	DstPort			1
+      }
+      Branch {
+	Points			[185, 0; 0, 35]
+	DstBlock		"BODY TISSUES\nCOMPARTMENT"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Dissociation"
+      SrcPort		      3
+      Points		      [10, 0]
+      Branch {
+	Points			[0, 65; -470, 0]
+	DstBlock		"GAS EXCHANGE\nIN THE LUNGS"
+	DstPort			9
+      }
+      Branch {
+	Points			[0, 20]
+	DstBlock		"CaO2"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"BODY TISSUES\nCOMPARTMENT"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "Dissociation"
+      SrcPort		      2
+      Points		      [10, 0]
+      Branch {
+	Points			[0, -20]
+	DstBlock		"Goto1"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"SAO2"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "BODY TISSUES\nCOMPARTMENT"
+      SrcPort		      1
+      Points		      [0, -125; -840, 0; 0, 45]
+      DstBlock		      "GAS EXCHANGE\nIN THE LUNGS"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "BODY TISSUES\nCOMPARTMENT"
+      SrcPort		      2
+      Points		      [0, 90; -840, 0; 0, -100]
+      DstBlock		      "GAS EXCHANGE\nIN THE LUNGS"
+      DstPort		      8
+    }
+  }
+}

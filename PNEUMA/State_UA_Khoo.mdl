@@ -1,0 +1,2764 @@
+Model {
+  Name			  "State_UA_Khoo"
+  Version		  7.0
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    9
+    Inport {
+      Name		      "SI Sleep Wake State Index"
+    }
+    Inport {
+      Name		      "Variable Respiratory Rhythm"
+    }
+    Inport {
+      SignalName	      "Ventilatory Drive"
+      Name		      "Total Ventilatory Drive"
+    }
+    Inport {
+      Name		      "extern pressure"
+    }
+    Inport {
+      Name		      "Pleural Pressure"
+    }
+    Inport {
+      Name		      "Respiratory Flow Lower Airways"
+    }
+    Inport {
+      Name		      "Tidal Volume"
+    }
+    Inport {
+      Name		      "Sleep/Awake"
+    }
+    Inport {
+      Name		      "SWA/S"
+    }
+    NumRootOutports	    2
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "AI - Arousal Index"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      SignalName	      "State Dependent Conductance"
+      Name		      "Airway Cond Percentage "
+    }
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.5"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "GBK"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Mon Jul 23 19:48:33 2001"
+  Creator		  "CLM"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "CLM"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri Apr 23 00:20:47 2010"
+  RTWModifiedTimeStamp	  0
+  ModelVersionFormat	  "1.%<AutoIncrement:5>"
+  ConfigurationManager	  "none"
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.3.0"
+      Array {
+	Type			"Handle"
+	Dimension		7
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.3.0"
+	  StartTime		  "0.0"
+	  StopTime		  "10.0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  RateTranMode		  "Deterministic"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.3.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    5
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "InitFltsAndDblsToZero"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.3.0"
+	  BlockReduction	  off
+	  BooleanDataType	  off
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnforceIntegerDowncast  on
+	  ExpressionFolding	  on
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  on
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.3.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"none"
+	  CheckSSInitialOutputMsg on
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "TryResolveAllWithWarning"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  SolverPrmCheckMsg	  "none"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "warning"
+	  MultiTaskCondExecSysMsg "none"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  ModelReferenceSimTargetVerbose off
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  StrictBusMsg		  "None"
+	  LoggingUnavailableSignals "error"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.3.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  on
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.3.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  8
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "IncludeHyperlinkInReport"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.3.0"
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  on
+	  GenerateTraceInfo	  off
+	  RTWCompilerOptimization "Off"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      9
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.3.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      SimulinkBlockComments   on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      10
+	      Array {
+		Type			"Cell"
+		Dimension		13
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.3.0"
+	      TargetFcnLib	      "ansi_tfl_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      GenFloatMathFcnCalls    "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  on
+	      CombineOutputUpdateFcns off
+	      SuppressErrorStatus     off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      EnablePort
+      StatesWhenEnabling      "held"
+      ShowOutputPort	      off
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      From
+      IconDisplay	      "Tag"
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "fixdt(1,16,0)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "[]"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Goto
+      IconDisplay	      "Tag"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      ContinuousStateAttributes	"''"
+    }
+    Block {
+      BlockType		      Math
+      Operator		      "exp"
+      OutputSignalType	      "auto"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Memory
+      X0		      "0"
+      InheritSampleTime	      off
+      LinearizeMemory	      off
+      LinearizeAsDelay	      off
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "fixdt(1,16,0)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "[]"
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimit	      "0.5"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "State_UA_Khoo"
+    Location		    [-4, 107, 1071, 543]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Inport
+      Name		      "SI Sleep Wake State Index"
+      Position		      [105, 488, 135, 502]
+      NamePlacement	      "alternate"
+      FontName		      "Arial"
+      FontSize		      16
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Variable Respiratory Rhythm"
+      Position		      [370, 178, 400, 192]
+      FontName		      "Arial"
+      FontSize		      16
+      Port		      "2"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Total Ventilatory Drive"
+      Position		      [310, 443, 340, 457]
+      NamePlacement	      "alternate"
+      FontName		      "Arial"
+      FontSize		      16
+      Port		      "3"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      Port {
+	PortNumber		1
+	Name			"Ventilatory Drive"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "extern pressure"
+      Position		      [630, 548, 660, 562]
+      FontName		      "Arial"
+      FontSize		      16
+      Port		      "4"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Pleural Pressure"
+      Position		      [455, 248, 485, 262]
+      FontName		      "Arial"
+      FontSize		      16
+      Port		      "5"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Respiratory Flow Lower Airways"
+      Position		      [375, 213, 405, 227]
+      FontName		      "Arial"
+      FontSize		      16
+      Port		      "6"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Tidal Volume"
+      Position		      [465, 283, 495, 297]
+      FontName		      "Arial"
+      FontSize		      16
+      Port		      "7"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Sleep/Awake"
+      Position		      [490, 578, 520, 592]
+      FontName		      "Arial"
+      FontSize		      16
+      Port		      "8"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "SWA/S"
+      Position		      [635, 643, 665, 657]
+      Orientation	      "left"
+      NamePlacement	      "alternate"
+      FontName		      "Arial"
+      FontSize		      16
+      Port		      "9"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Fcn
+      Name		      "Arousal Threshold"
+      Position		      [205, 622, 325, 678]
+      Orientation	      "left"
+      FontName		      "Arial"
+      FontSize		      16
+      Expr		      "(u(1) > (Ivent - Ivent*0.3*(1-u(2) ) ) )"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      Ports		      [2, 1]
+      Position		      [420, 631, 425, 669]
+      Orientation	      "left"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      Inputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "State-dependent\nUpper Airway model"
+      Ports		      [5]
+      Position		      [780, 482, 1020, 628]
+      FontName		      "Arial"
+      FontSize		      16
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      System {
+	Name			"State-dependent\nUpper Airway model"
+	Location		[-30, 93, 1238, 781]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "SI Sleep Wake State Index"
+	  Position		  [415, 73, 445, 87]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "AI - Arousal Index"
+	  Position		  [355, 253, 385, 267]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "External Pressure"
+	  Position		  [155, 83, 185, 97]
+	  NamePlacement		  "alternate"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Sleep/Awake"
+	  Position		  [315, 183, 345, 197]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "SWA/S"
+	  Position		  [320, 153, 350, 167]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Airway Cond\nSaturation2"
+	  Position		  [405, 115, 435, 145]
+	  UpperLimit		  "1"
+	  LowerLimit		  "0"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Arousal_UAIC"
+	  Position		  [910, 162, 990, 178]
+	  ShowName		  off
+	  GotoTag		  "Arousal_UAIC"
+	  TagVisibility		  "global"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "Fcn1"
+	  Position		  [670, 150, 725, 170]
+	  NamePlacement		  "alternate"
+	  Expr			  "((u(1) >=1.0) * u(2) * (1 + 0.3 * (1 - u(3)) * (1-u(4)) )  + ( u(1)<1.0) * u(1) * u(2) ) *(1- u(5))* u(1)"
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Integrator"
+	  Ports			  [2, 1]
+	  Position		  [780, 152, 810, 183]
+	  ExternalReset		  "rising"
+	  InitialCondition	  "Arousal_UAIC"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux1"
+	  Ports			  [5, 1]
+	  Position		  [585, 88, 590, 232]
+	  ShowName		  off
+	  Inputs		  "5"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "PE gain2"
+	  Position		  [235, 80, 285, 100]
+	  Gain			  "1/15"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "S_UA"
+	  Position		  [150, 126, 200, 144]
+	  Value			  "0.05"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "sum3"
+	  Ports			  [2, 1]
+	  Position		  [325, 114, 345, 141]
+	  ShowName		  off
+	  Inputs		  "-+"
+	  CollapseMode		  "All dimensions"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "AI - Arousal Index"
+	  SrcPort		  1
+	  Points		  [150, 0]
+	  Branch {
+	    Points		    [225, 0]
+	    DstBlock		    "Integrator"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, -40]
+	    DstBlock		    "Mux1"
+	    DstPort		    5
+	  }
+	}
+	Line {
+	  SrcBlock		  "SI Sleep Wake State Index"
+	  SrcPort		  1
+	  Points		  [0, 20]
+	  DstBlock		  "Mux1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "SWA/S"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Sleep/Awake"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "S_UA"
+	  SrcPort		  1
+	  DstBlock		  "sum3"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "sum3"
+	  SrcPort		  1
+	  DstBlock		  "Airway Cond\nSaturation2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "External Pressure"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "PE gain2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "PE gain2"
+	  SrcPort		  1
+	  Points		  [0, 30]
+	  DstBlock		  "sum3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Mux1"
+	  SrcPort		  1
+	  DstBlock		  "Fcn1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Airway Cond\nSaturation2"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Fcn1"
+	  SrcPort		  1
+	  DstBlock		  "Integrator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Integrator"
+	  SrcPort		  1
+	  DstBlock		  "Arousal_UAIC"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "SubSystem"
+      Ports		      []
+      Position		      [31, 22, 135, 81]
+      ShowName		      off
+      OpenFcn		      "State_UA_Khoo_IC"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskDisplay	      "disp('\"double click here\"\\n to load \\nState_UA_Khoo \\ninitial values');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"SubSystem"
+	Location		[154, 176, 652, 476]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Upper_Airway_Model"
+      Ports		      [7, 1, 1]
+      Position		      [595, 133, 990, 377]
+      FontName		      "Arial"
+      FontSize		      16
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Port {
+	PortNumber		1
+	Name			"State Dependent Conductance"
+	PropagatedSignals	"Y_ua Upper Airway Conductance"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      System {
+	Name			"Upper_Airway_Model"
+	Location		[105, 86, 1335, 814]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"63"
+	Block {
+	  BlockType		  Inport
+	  Name			  "SI Sleep Wake State Index"
+	  Position		  [1010, 473, 1040, 487]
+	  Orientation		  "left"
+	  BackgroundColor	  "green"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "SI Sleep Wake State Index"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Respiratory Rhythm"
+	  Position		  [1360, 568, 1390, 582]
+	  ForegroundColor	  "orange"
+	  BackgroundColor	  "green"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Respiratory Rhythm"
+	    PropagatedSignals	    "Variable Respiratory Rhythm"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Q_total\nTotal Respiratory Flow Airways"
+	  Position		  [230, 1098, 260, 1112]
+	  BackgroundColor	  "green"
+	  DropShadow		  on
+	  NamePlacement		  "alternate"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Q_total "
+	    PropagatedSignals	    "Respiratory Flow"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Pleural Pressure"
+	  Position		  [1055, 833, 1085, 847]
+	  Orientation		  "left"
+	  BackgroundColor	  "green"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "P_pl Pleural Pressure"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Tidal Volume"
+	  Position		  [1270, 673, 1300, 687]
+	  BackgroundColor	  "green"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Tidal Volume"
+	    PropagatedSignals	    " Vt Tidal Volume"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Total Ventilatory Drive"
+	  Position		  [1250, 543, 1280, 557]
+	  BackgroundColor	  "green"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Ventilatory Drive"
+	    PropagatedSignals	    "Ventilatory Drive"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Sleep/awake"
+	  Position		  [955, 563, 985, 577]
+	  Orientation		  "left"
+	  BackgroundColor	  "green"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  EnablePort
+	  Name			  "Enable"
+	  Ports			  []
+	  Position		  [240, 80, 260, 100]
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  " Flow in Upper Airway"
+	  Ports			  [2, 1]
+	  Position		  [280, 609, 745, 751]
+	  ForegroundColor	  "blue"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Port {
+	    PortNumber		    1
+	    Name		    "Q_ua Upper Airway Flow"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    " Flow in Upper Airway"
+	    Location		    [-61, 93, 1207, 773]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "93"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "C_ua\nUpper Airway Compliance"
+	      Position		      [635, 425, 665, 435]
+	      Orientation	      "down"
+	      BackgroundColor	      "green"
+	      NamePlacement	      "alternate"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "P_ua\nPressure in Upper Airways"
+	      Position		      [235, 198, 265, 212]
+	      BackgroundColor	      "green"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Coefficient1"
+	      Position		      [380, 96, 445, 134]
+	      Gain		      "-1"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Coefficient2"
+	      Position		      [970, 181, 1035, 219]
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      Position		      [75, 96, 145, 134]
+	      BackgroundColor	      "green"
+	      Value		      "R_trachea*10"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [605, 355, 635, 385]
+	      Orientation	      "left"
+	      LimitOutput	      on
+	      UpperSaturationLimit    "100"
+	      LowerSaturationLimit    "-100"
+	    }
+	    Block {
+	      BlockType		      Math
+	      Name		      "Math\nFunction"
+	      Ports		      [1, 1]
+	      Position		      [240, 99, 325, 131]
+	      Operator		      "reciprocal"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Math
+	      Name		      "Math\nFunction1"
+	      Ports		      [1, 1]
+	      Position		      [633, 470, 667, 520]
+	      Orientation	      "down"
+	      NamePlacement	      "alternate"
+	      Operator		      "reciprocal"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Memory
+	      Name		      "Memory"
+	      Position		      [725, 185, 755, 215]
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product"
+	      Ports		      [2, 1]
+	      Position		      [395, 361, 440, 394]
+	      Orientation	      "left"
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      RndMeth		      "Floor"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product1"
+	      Ports		      [2, 1]
+	      Position		      [500, 181, 545, 214]
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      RndMeth		      "Floor"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      Ports		      [2, 1]
+	      Position		      [385, 177, 410, 233]
+	      ShowName		      off
+	      Inputs		      "|++"
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Q_ua\nUpper Airway Flow\n"
+	      Position		      [1170, 193, 1200, 207]
+	      BackgroundColor	      "cyan"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Product1"
+	      SrcPort		      1
+	      Points		      [145, 0]
+	      Branch {
+		Points			[0, 170]
+		DstBlock		"Integrator"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Memory"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "P_ua\nPressure in Upper Airways"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Product1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "C_ua\nUpper Airway Compliance"
+	      SrcPort		      1
+	      DstBlock		      "Math\nFunction1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      DstBlock		      "Product"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Product"
+	      SrcPort		      1
+	      Points		      [-50, 0; 0, -155]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      DstBlock		      "Math\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Math\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Coefficient1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Coefficient1"
+	      SrcPort		      1
+	      Points		      [35, 0]
+	      DstBlock		      "Product1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Coefficient2"
+	      SrcPort		      1
+	      DstBlock		      "Q_ua\nUpper Airway Flow\n"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Memory"
+	      SrcPort		      1
+	      DstBlock		      "Coefficient2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Math\nFunction1"
+	      SrcPort		      1
+	      Points		      [0, 20; -155, 0; 0, -160]
+	      DstBlock		      "Product"
+	      DstPort		      2
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  " Pressure in Upper Airway"
+	  Ports			  [2, 1]
+	  Position		  [340, 804, 725, 946]
+	  Orientation		  "left"
+	  ForegroundColor	  "blue"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Port {
+	    PortNumber		    1
+	    Name		    "P_ua"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    " Pressure in Upper Airway"
+	    Location		    [-91, 111, 1177, 770]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "P_pl\nPleural Pressure"
+	      Position		      [210, 258, 240, 272]
+	      BackgroundColor	      "green"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Q_la\nLower Airway Flow"
+	      Position		      [120, 163, 150, 177]
+	      BackgroundColor	      "green"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      Port {
+		PortNumber		1
+		Name			"Q_la Lower Airway Flow\n"
+		PropagatedSignals	"Q_la Lower Airway Flow"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "R_LA\nLower Airways Resistance"
+	      Position		      [330, 152, 550, 188]
+	      Gain		      "R_LAW+R_L+R_CW"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "R_LA\nLower Airways Resistance1"
+	      Position		      [620, 151, 720, 189]
+	      Gain		      "0.7"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum2"
+	      Ports		      [2, 1]
+	      Position		      [865, 186, 885, 244]
+	      ShowName		      off
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "P_ua\nUpper Airway Pressure\n"
+	      Position		      [1205, 208, 1235, 222]
+	      BackgroundColor	      "cyan"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      InitialOutput	      "[0]"
+	    }
+	    Line {
+	      Name		      "Q_la Lower Airway Flow\n"
+	      Labels		      [1, 1]
+	      SrcBlock		      "Q_la\nLower Airway Flow"
+	      SrcPort		      1
+	      DstBlock		      "R_LA\nLower Airways Resistance"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "P_pl\nPleural Pressure"
+	      SrcPort		      1
+	      Points		      [525, 0; 0, -35]
+	      DstBlock		      "Sum2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Sum2"
+	      SrcPort		      1
+	      DstBlock		      "P_ua\nUpper Airway Pressure\n"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "R_LA\nLower Airways Resistance"
+	      SrcPort		      1
+	      DstBlock		      "R_LA\nLower Airways Resistance1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "R_LA\nLower Airways Resistance1"
+	      SrcPort		      1
+	      Points		      [45, 0; 0, 30]
+	      DstBlock		      "Sum2"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Coefficient1"
+	  Position		  [480, 1086, 545, 1124]
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux"
+	  Ports			  [2, 1]
+	  Position		  [1655, 319, 1660, 386]
+	  DropShadow		  on
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Inputs		  "2"
+	  DisplayOption		  "bar"
+	  Port {
+	    PortNumber		    1
+	    Name		    "P_ua vs. P_cirt"
+	    PropagatedSignals	    "P_crit , P_ua"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum2"
+	  Ports			  [2, 1]
+	  Position		  [850, 1046, 870, 1104]
+	  ShowName		  off
+	  CollapseMode		  "All dimensions"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Q_la Lower Airway Flow"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Upper Airway Conductance3"
+	  Ports			  [2, 2]
+	  Position		  [835, 209, 1350, 376]
+	  ForegroundColor	  "red"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Port {
+	    PortNumber		    1
+	    Name		    "Y_ua Upper Airway Conductance"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "P_crit "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "Upper Airway Conductance3"
+	    Location		    [6, 93, 1230, 752]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "C_ua_Upper_Airway_Compliance"
+	      Position		      [160, 452, 200, 468]
+	      ForegroundColor	      "yellow"
+	      BackgroundColor	      "green"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      Port {
+		PortNumber		1
+		Name			"C_ua"
+		PropagatedSignals	"C_ua Upper Airway Copmliance"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "P_ua_Upper Airway Pressure"
+	      Position		      [405, 155, 475, 175]
+	      BackgroundColor	      "green"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      Port {
+		PortNumber		1
+		Name			"P_ua"
+		PropagatedSignals	"P_ua"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "A_0_ua"
+	      Position		      [365, 89, 460, 121]
+	      ForegroundColor	      "cyan"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Value		      "A_0_ua"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      Port {
+		PortNumber		1
+		Name			"A_0_ua"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn"
+	      Position		      [1075, 129, 1200, 161]
+	      FontSize		      12
+	      Expr		      "( u(5) <=u(6) )* u(1)*0  + (u(5) >0.0)* u(1) * u(2) +  ( u(5) >u(6) )* (u(5) <=0.0) * ( u(7)>=0 ) * u(7)"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn1"
+	      Position		      [880, 300, 940, 330]
+	      FontSize		      12
+	      Expr		      "u(2) * (1+u(3)*u(4)*u(5)) *u(1)"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      Position		      [785, 456, 850, 484]
+	      FontSize		      12
+	      Gain		      "-1"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "K_ua"
+	      Position		      [600, 69, 655, 101]
+	      ForegroundColor	      "blue"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Value		      "K_ua"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Math
+	      Name		      "Math\nFunction"
+	      Ports		      [1, 1]
+	      Position		      [570, 455, 600, 485]
+	      FontSize		      12
+	      Operator		      "reciprocal"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux1"
+	      Ports		      [7, 1]
+	      Position		      [1030, 69, 1035, 221]
+	      ShowName		      off
+	      FontSize		      12
+	      Inputs		      "7"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux2"
+	      Ports		      [5, 1]
+	      Position		      [820, 241, 835, 389]
+	      ShowName		      off
+	      FontSize		      12
+	      Inputs		      "5"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product"
+	      Ports		      [2, 1]
+	      Position		      [450, 451, 495, 484]
+	      FontSize		      12
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      RndMeth		      "Floor"
+	    }
+	    Block {
+	      BlockType		      Saturate
+	      Name		      "Saturation"
+	      Position		      [925, 455, 955, 485]
+	      FontSize		      12
+	      UpperLimit	      "10"
+	      LowerLimit	      "-40"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "b_ua"
+	      Position		      [170, 112, 280, 138]
+	      ForegroundColor	      "orange"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Value		      "b_ua*13"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      Port {
+		PortNumber		1
+		Name			"b_ua"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Y_ua_Upper Airway Conductance"
+	      Position		      [1240, 188, 1270, 202]
+	      BackgroundColor	      "lightBlue"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "P_crit"
+	      Position		      [1110, 463, 1140, 477]
+	      BackgroundColor	      "lightBlue"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      Name		      "P_ua"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0; 2, 0]
+	      SrcBlock		      "P_ua_Upper Airway Pressure"
+	      SrcPort		      1
+	      Points		      [0, 0; 90, 0]
+	      Branch {
+		DstBlock		"Mux1"
+		DstPort			5
+	      }
+	      Branch {
+		Points			[0, 210]
+		DstBlock		"Mux2"
+		DstPort			5
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "K_ua"
+	      SrcPort		      1
+	      Points		      [0, 0; 120, 0]
+	      Branch {
+		DstBlock		"Mux1"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 170]
+		DstBlock		"Mux2"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      Name		      "C_ua"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [2, 1]
+	      SrcBlock		      "C_ua_Upper_Airway_Compliance"
+	      SrcPort		      1
+	      Points		      [0, 0; 190, 0]
+	      Branch {
+		Points			[0, -315; 250, 0]
+		Branch {
+		  DstBlock		  "Mux1"
+		  DstPort		  4
+		}
+		Branch {
+		  Points		  [0, 200]
+		  DstBlock		  "Mux2"
+		  DstPort		  4
+		}
+	      }
+	      Branch {
+		Labels			[1, 0]
+		DstBlock		"Product"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      Name		      "b_ua"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SrcBlock		      "b_ua"
+	      SrcPort		      1
+	      Points		      [0, 0; 40, 0]
+	      Branch {
+		Points			[0, 0; 355, 0]
+		Branch {
+		  DstBlock		  "Mux1"
+		  DstPort		  3
+		}
+		Branch {
+		  Points		  [0, 190]
+		  DstBlock		  "Mux2"
+		  DstPort		  3
+		}
+	      }
+	      Branch {
+		Labels			[1, 0]
+		Points			[0, 350]
+		DstBlock		"Product"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      Name		      "A_0_ua"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      SrcBlock		      "A_0_ua"
+	      SrcPort		      1
+	      Points		      [0, 0; 255, 0]
+	      Branch {
+		DstBlock		"Mux1"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[0, 180]
+		DstBlock		"Mux2"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Mux1"
+	      SrcPort		      1
+	      DstBlock		      "Fcn"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Fcn"
+	      SrcPort		      1
+	      Points		      [20, 0]
+	      DstBlock		      "Y_ua_Upper Airway Conductance"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Fcn1"
+	      SrcPort		      1
+	      Points		      [0, -110]
+	      DstBlock		      "Mux1"
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "Mux2"
+	      SrcPort		      1
+	      DstBlock		      "Fcn1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Saturation"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Product"
+	      SrcPort		      1
+	      DstBlock		      "Math\nFunction"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Math\nFunction"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Saturation"
+	      SrcPort		      1
+	      Points		      [20, 0; 0, -5]
+	      Branch {
+		Points			[0, 5]
+		DstBlock		"P_crit"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -280]
+		DstBlock		"Mux1"
+		DstPort			6
+	      }
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Upper Airway Scope"
+	  Ports			  [12]
+	  Position		  [1665, 500, 1865, 835]
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Floating		  off
+	  Location		  [1041, 55, 1675, 1024]
+	  Open			  off
+	  NumInputPorts		  "12"
+	  ZoomMode		  "yonly"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	    axes2		    "%<SignalLabel>"
+	    axes3		    "%<SignalLabel>"
+	    axes4		    "%<SignalLabel>"
+	    axes5		    "%<SignalLabel>"
+	    axes6		    "%<SignalLabel>"
+	    axes7		    "%<SignalLabel>"
+	    axes8		    "%<SignalLabel>"
+	    axes9		    "%<SignalLabel>"
+	    axes10		    "%<SignalLabel>"
+	    axes11		    "%<SignalLabel>"
+	    axes12		    "%<SignalLabel>"
+	  }
+	  TimeRange		  "120"
+	  YMin			  "0~0.2~-0.05~-40~-4~-41~-0.1~-2~-2e-006~-4~0.005~0.5"
+	  YMax			  "1~0.48~1.05~5~1.5~10~3~2.5~5e-006~5~0.01~1.05"
+	  SaveName		  "ScopeData20"
+	  DataFormat		  "StructureWithTime"
+	  MaxDataPoints		  "50"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Upper_Airway_Compliance"
+	  Ports			  [2, 1]
+	  Position		  [315, 406, 770, 559]
+	  Orientation		  "left"
+	  ForegroundColor	  "magenta"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Port {
+	    PortNumber		    1
+	    Name		    "C_ua Upper Airway Copmliance"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "Upper_Airway_Compliance"
+	    Location		    [184, 413, 1041, 760]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "SI Sleep Wake State Index\n"
+	      Position		      [75, 63, 105, 77]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Sleep/awake"
+	      Position		      [100, 233, 130, 247]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "% increase"
+	      Position		      [135, 159, 210, 201]
+	      Gain		      "35"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Awake Upper Airway\n Compliance"
+	      Position		      [20, 119, 125, 141]
+	      ForegroundColor	      "blue"
+	      NamePlacement	      "alternate"
+	      Value		      "C_ua_awake"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn"
+	      Position		      [390, 123, 495, 157]
+	      Expr		      "( u(1) <=0 ) * u(2) + ( u(1) >=1) * u(2) * ( 1+u(3) ) +  ( u(1) >0 ) * ( u(1) <1 ) * u(2) * ( 1+u(3)*u(1)*u(1) * ( 1- u(4)))"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux1"
+	      Ports		      [4, 1]
+	      Position		      [290, 109, 325, 166]
+	      ShowName		      off
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "S_UA"
+	      Position		      [30, 171, 110, 189]
+	      ForegroundColor	      "darkGreen"
+	      Value		      "0.01"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "C_ua\nUpper Airway Compliance"
+	      Position		      [615, 133, 645, 147]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Awake Upper Airway\n Compliance"
+	      SrcPort		      1
+	      DstBlock		      "Mux1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "SI Sleep Wake State Index\n"
+	      SrcPort		      1
+	      Points		      [90, 0; 0, 45]
+	      DstBlock		      "Mux1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "% increase"
+	      SrcPort		      1
+	      Points		      [0, -35]
+	      DstBlock		      "Mux1"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Mux1"
+	      SrcPort		      1
+	      DstBlock		      "Fcn"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Fcn"
+	      SrcPort		      1
+	      DstBlock		      "C_ua\nUpper Airway Compliance"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S_UA"
+	      SrcPort		      1
+	      DstBlock		      "% increase"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sleep/awake"
+	      SrcPort		      1
+	      Points		      [140, 0]
+	      DstBlock		      "Mux1"
+	      DstPort		      4
+	    }
+	    Annotation {
+	      Position		      [1524, 7]
+	    }
+	    Annotation {
+	      Position		      [1387, 693]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Y_ua\nUpper Airway Conductance\n"
+	  Position		  [1805, 243, 1835, 257]
+	  BackgroundColor	  "cyan"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  18
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  InitialOutput		  "[0]"
+	}
+	Line {
+	  Name			  "Q_total "
+	  FontName		  "Arial"
+	  FontSize		  18
+	  SrcBlock		  "Q_total\nTotal Respiratory Flow Airways"
+	  SrcPort		  1
+	  Points		  [80, 0]
+	  Branch {
+	    Labels		    [1, 1]
+	    Points		    [0, 95; 995, 0; 0, -495]
+	    DstBlock		    "Upper Airway Scope"
+	    DstPort		    8
+	  }
+	  Branch {
+	    Labels		    [-1, 1]
+	    DstBlock		    "Coefficient1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  Name			  "SI Sleep Wake State Index"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [0, 0]
+	  SrcBlock		  "SI Sleep Wake State Index"
+	  SrcPort		  1
+	  Points		  [-195, 0]
+	  Branch {
+	    Points		    [-25, 0]
+	    DstBlock		    "Upper_Airway_Compliance"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Labels		    [-1, 1; 2, 0]
+	    Points		    [0, 50]
+	    DstBlock		    "Upper Airway Scope"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  Name			  "P_pl Pleural Pressure"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  SrcBlock		  "Pleural Pressure"
+	  SrcPort		  1
+	  Points		  [0, 0; -35, 0]
+	  Branch {
+	    Labels		    [-1, 1]
+	    Points		    [0, -235]
+	    DstBlock		    "Upper Airway Scope"
+	    DstPort		    4
+	  }
+	  Branch {
+	    Labels		    [1, 0]
+	    DstBlock		    " Pressure in Upper Airway"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  Name			  "Q_la Lower Airway Flow"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [1, 0]
+	  SrcBlock		  "Sum2"
+	  SrcPort		  1
+	  Points		  [200, 0; 0, -165]
+	  Branch {
+	    Labels		    [-1, 0]
+	    DstBlock		    " Pressure in Upper Airway"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Labels		    [3, 0]
+	    Points		    [280, 0; 0, -155]
+	    DstBlock		    "Upper Airway Scope"
+	    DstPort		    10
+	  }
+	}
+	Line {
+	  Name			  "P_ua"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [0, 0; 1, 1]
+	  SrcBlock		  " Pressure in Upper Airway"
+	  SrcPort		  1
+	  Points		  [-255, 0; 0, -160]
+	  Branch {
+	    DstBlock		    " Flow in Upper Airway"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, -380; 725, 0]
+	    Branch {
+	      DstBlock		      "Upper Airway Conductance3"
+	      DstPort		      2
+	    }
+	    Branch {
+	      Points		      [0, 75; 345, 0]
+	      Branch {
+		Points			[490, 0]
+		DstBlock		"Mux"
+		DstPort			2
+	      }
+	      Branch {
+		Labels			[2, 0]
+		Points			[0, 220]
+		DstBlock		"Upper Airway Scope"
+		DstPort			5
+	      }
+	    }
+	  }
+	}
+	Line {
+	  Name			  "P_crit "
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [1, 0]
+	  SrcBlock		  "Upper Airway Conductance3"
+	  SrcPort		  2
+	  DstBlock		  "Mux"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "C_ua Upper Airway Copmliance"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [0, 0]
+	  SrcBlock		  "Upper_Airway_Compliance"
+	  SrcPort		  1
+	  Points		  [-265, -5]
+	  Branch {
+	    Labels		    [2, 0]
+	    Points		    [0, 165]
+	    DstBlock		    " Flow in Upper Airway"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -230]
+	    Branch {
+	      Labels		      [-1, 1]
+	      DstBlock		      "Upper Airway Conductance3"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Labels		      [6, 0]
+	      Points		      [0, -65; 1900, 0; 0, 740; -570, 0; 0, -145]
+	      DstBlock		      "Upper Airway Scope"
+	      DstPort		      11
+	    }
+	  }
+	}
+	Line {
+	  Name			  "Q_ua Upper Airway Flow"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [0, 1]
+	  SrcBlock		  " Flow in Upper Airway"
+	  SrcPort		  1
+	  Points		  [215, 0; 0, 50]
+	  Branch {
+	    Labels		    [-1, 1]
+	    DstBlock		    "Upper Airway Scope"
+	    DstPort		    9
+	  }
+	  Branch {
+	    Labels		    [3, 1]
+	    Points		    [0, 260; -290, 0; 0, 70]
+	    DstBlock		    "Sum2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  Name			  "Y_ua Upper Airway Conductance"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  SrcBlock		  "Upper Airway Conductance3"
+	  SrcPort		  1
+	  Points		  [245, 0]
+	  Branch {
+	    Labels		    [6, 0]
+	    Points		    [0, -40; 325, 0; 0, 695; -525, 0; 0, -100]
+	    DstBlock		    "Upper Airway Scope"
+	    DstPort		    12
+	  }
+	  Branch {
+	    DstBlock		    "Y_ua\nUpper Airway Conductance\n"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  Name			  "Ventilatory Drive"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [-1, 1]
+	  SrcBlock		  "Total Ventilatory Drive"
+	  SrcPort		  1
+	  Points		  [0, 5]
+	  DstBlock		  "Upper Airway Scope"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "P_ua vs. P_cirt"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [-1, 1]
+	  SrcBlock		  "Mux"
+	  SrcPort		  1
+	  Points		  [310, 0; 0, 600; -765, 0; 0, -300]
+	  DstBlock		  "Upper Airway Scope"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "Tidal Volume"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [-1, 1]
+	  SrcBlock		  "Tidal Volume"
+	  SrcPort		  1
+	  DstBlock		  "Upper Airway Scope"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "Respiratory Rhythm"
+	  FontName		  "Arial"
+	  FontSize		  18
+	  Labels		  [-1, 1]
+	  SrcBlock		  "Respiratory Rhythm"
+	  SrcPort		  1
+	  Points		  [0, 5]
+	  DstBlock		  "Upper Airway Scope"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Sleep/awake"
+	  SrcPort		  1
+	  Points		  [-165, 0]
+	  DstBlock		  "Upper_Airway_Compliance"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Coefficient1"
+	  SrcPort		  1
+	  Points		  [125, 0; 0, -15]
+	  DstBlock		  "Sum2"
+	  DstPort		  2
+	}
+      }
+    }
+    Block {
+      BlockType		      From
+      Name		      "Valsalva_resp_mech"
+      Position		      [90, 100, 320, 130]
+      ShowName		      off
+      CloseFcn		      "tagdialog Close"
+      FontName		      "Arial"
+      FontSize		      16
+      GotoTag		      "Breathing_Enable"
+      TagVisibility	      "global"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "AI - Arousal Index"
+      Position		      [70, 643, 100, 657]
+      Orientation	      "left"
+      FontName		      "Arial"
+      FontSize		      16
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Airway Cond\nPercentage\n"
+      Position		      [1100, 353, 1130, 367]
+      FontName		      "Arial"
+      FontSize		      16
+      Port		      "2"
+      IconDisplay	      "Port number"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Line {
+      SrcBlock		      "SI Sleep Wake State Index"
+      SrcPort		      1
+      Points		      [105, 0]
+      Branch {
+	Points			[0, -345]
+	DstBlock		"Upper_Airway_Model"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"State-dependent\nUpper Airway model"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "extern pressure"
+      SrcPort		      1
+      DstBlock		      "State-dependent\nUpper Airway model"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "SWA/S"
+      SrcPort		      1
+      Points		      [-65, 0]
+      Branch {
+	Points			[-125, 0]
+	DstBlock		"Mux"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -35]
+	DstBlock		"State-dependent\nUpper Airway model"
+	DstPort			5
+      }
+    }
+    Line {
+      Name		      "Ventilatory Drive"
+      FontName		      "Arial"
+      FontSize		      16
+      Labels		      [0, 0]
+      SrcBlock		      "Total Ventilatory Drive"
+      SrcPort		      1
+      Points		      [95, 0]
+      Branch {
+	Points			[0, -125]
+	DstBlock		"Upper_Airway_Model"
+	DstPort			6
+      }
+      Branch {
+	DstBlock		"Mux"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Sleep/Awake"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	DstBlock		"State-dependent\nUpper Airway model"
+	DstPort			4
+      }
+      Branch {
+	Points			[0, -225]
+	DstBlock		"Upper_Airway_Model"
+	DstPort			7
+      }
+    }
+    Line {
+      Name		      "State Dependent Conductance"
+      FontName		      "Arial"
+      FontSize		      16
+      Labels		      [0, 0]
+      SrcBlock		      "Upper_Airway_Model"
+      SrcPort		      1
+      Points		      [90, 0]
+      DstBlock		      "Airway Cond\nPercentage\n"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Variable Respiratory Rhythm"
+      SrcPort		      1
+      DstBlock		      "Upper_Airway_Model"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Respiratory Flow Lower Airways"
+      SrcPort		      1
+      DstBlock		      "Upper_Airway_Model"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Pleural Pressure"
+      SrcPort		      1
+      DstBlock		      "Upper_Airway_Model"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Tidal Volume"
+      SrcPort		      1
+      DstBlock		      "Upper_Airway_Model"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "Valsalva_resp_mech"
+      SrcPort		      1
+      Points		      [465, 0]
+      DstBlock		      "Upper_Airway_Model"
+      DstPort		      enable
+    }
+    Line {
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      DstBlock		      "Arousal Threshold"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Arousal Threshold"
+      SrcPort		      1
+      Points		      [-30, 0]
+      Branch {
+	DstBlock		"AI - Arousal Index"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -125]
+	DstBlock		"State-dependent\nUpper Airway model"
+	DstPort			2
+      }
+    }
+  }
+}

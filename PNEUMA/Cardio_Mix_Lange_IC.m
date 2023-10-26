@@ -1,0 +1,9 @@
+T1 = 1;
+T2 = 2;
+PAO2_delayIC = 103.8436;
+PACO2_delayIC = 39.6041;
+PaCO2firstIC = 0.2150;
+PaCO2secondIC = 38.4577;
+PaO2firstIC = -0.2838;
+PaO2secondIC = 105.4828;
+Kdp = 0.588;

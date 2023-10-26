@@ -1,0 +1,20 @@
+PIO2 = 150;
+PICO2 = 0;
+
+Dead1O2IC = 149.8824;
+Dead2O2IC = 149.3923;
+Dead3O2IC = 147.3503;
+Dead4O2IC = 140.5179;
+Dead5O2IC = 124.5641;
+
+Dead1CO2IC = 0.1020;
+Dead2CO2IC = 0.5274;
+Dead3CO2IC = 2.2996;
+Dead4CO2IC = 8.2293;
+Dead5CO2IC = 22.0757;
+
+Vdead1 = 0.03;
+Vdead2 = 0.03;
+Vdead3 = 0.03;
+Vdead4 = 0.03;
+Vdead5 = 0.03;

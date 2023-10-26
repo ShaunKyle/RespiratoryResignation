@@ -1,0 +1,11 @@
+TImean = 1.5;
+TTmean = 4.0;
+DtotalIC = 0.3;
+t_valsalva_start = 0;
+t_valsalva_duration = 0;
+Valsalva_activation = 0;
+t_valsalva_insp = 0;
+t_Mueller_start = 0;
+t_Mueller_duration = 0;
+Mueller_activation = 0;
+t_Mueller_insp = 0;
