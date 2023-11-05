@@ -7,17 +7,33 @@ PNEUMA_MAIN_CONTROL_PANEL;
 
 % TODO: Specify relevant signals to log before running simulation?
 
-%% testing...
+%% Short example simulation
 
 % Load patient lung function
-LungFunction=[0,0.25];
-% LungFunction = LoadPatient(2);
+LungFunction=[0, 0.1];      % Constant lung function (max is 1)
 
-% Set duration
+% Set duration [s]
 t_start_new=0;
-t_end_new=50;
+t_end_new=60*60;    % 1 hour
 
-% Set something else
+% Set open-loop control parameters
+% Controls pulse blocks in Ventilator Controller.
+% 1) Inspiratory oxygen [torr]
+PIO2 = 150;
+PIO2_change = 0;
+t_O2_start = 0;
+t_O2_duration = 0;
+
+% 2) Neuromuscular block [On/Off]
+NM_block_gain = 1;
+t_NM_block_start = 0;
+t_NM_block_duration = 0;
+
+% 3) Ventilation rate and pressure
+Ventilator_rate = 12;
+Mech_Vent_pressure = 120;
+t_Mech_Vent_start = 0;
+t_Mech_Vent_duration = 0;
 
 % Run simulation
 RunSimulation()
@@ -26,6 +42,63 @@ RunSimulation()
 SaveSimulation('simdata/TestSim');
 
 % Reset stuff
+DEFAULTSIMPARAMS
+
+%% Effect of reducing lung function (LungsOnly)
+% Purpose:
+% Observe effect of lung function on physiological signals
+%
+% Parameters: 
+% No ventilation, no NMB
+% Inspiratory oxygen at 150 torr
+
+lungConstants = [0.1, 0.5, 0.8];
+for n = 1:length(lungConstants)
+    % Independent var
+    constantLung = lungConstants(n);
+    disp("LungFunction = " + num2str(constantLung));
+
+    % Run sim
+    DEFAULTSIMPARAMS
+    LungFunction = [0, constantLung];
+    RunSimulation();
+    SaveSimulation(['simdata/LungsOnly/LungFunction', num2str(100*constantLung)]);
+end
+
+% Conclusions:
+% - At lower lung function, ABP is generally higher. (until patient dies)
+
+
+%% Effect of oxygen concentration on sick patient (O2Only)
+% Purpose:
+% Observe effect of 
+% Recommendation is 150 - 760 Torr
+
+for constantLung = [0.5, 0.1]
+    DEFAULTPARAMS   % 1 hour
+    LungFunction = [0, constantLung];
+    for constantO2 = 100:100:800
+        PIO2 = constantO2;
+        RunSimulation();
+        SaveSimulation('simdata/O2Only/Lung' + num2str(100*constantLung) ...
+            + 'Oxy' + num2str(constantO2));
+    end
+end
+
+%% TODO: Patients
+
+for n = 1:10
+    % Load patient lun function
+    LungFunction = LoadPatient(n);
+
+    % Simulate for 4 days
+    t_start_new=0;
+    t_end_new=4*24*60*60;
+
+    % Run
+    RunSimulation();
+    SaveSimulation('simdata/Patient' + num2str(n) + '/NoIntervention');
+end
 
 %% Helper functions
 
