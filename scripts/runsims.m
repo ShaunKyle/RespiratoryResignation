@@ -10,7 +10,7 @@ PNEUMA_MAIN_CONTROL_PANEL;
 %% Short example simulation
 
 % Load patient lung function
-LungFunction=[0, 0.1];      % Constant lung function (max is 1)
+LungFunction=[0, 0.8];      % Constant lung function (max is 1)
 
 % Set duration [s]
 t_start_new=0;
