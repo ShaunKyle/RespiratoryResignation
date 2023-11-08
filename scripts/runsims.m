@@ -10,16 +10,16 @@ PNEUMA_MAIN_CONTROL_PANEL;
 %% Short example simulation
 
 % Load patient lung function
-LungFunction=[0, 0.8];      % Constant lung function (max is 1)
+LungFunction=[0, 0.2];      % Constant lung function (max is 1)
 
 % Set duration [s]
 t_start_new=0;
-t_end_new=60*60;    % 1 hour
+t_end_new=60*60*1;    % 1 hour
 
 % Set open-loop control parameters
 % Controls pulse blocks in Ventilator Controller.
 % 1) Inspiratory oxygen [torr]
-PIO2 = 150;
+PIO2 = 300;
 PIO2_change = 0;
 t_O2_start = 0;
 t_O2_duration = 0;
@@ -52,7 +52,7 @@ DEFAULTSIMPARAMS
 % No ventilation, no NMB
 % Inspiratory oxygen at 150 torr
 
-lungConstants = [0.1, 0.5, 0.8];
+lungConstants = [0.19, 0.17];
 for n = 1:length(lungConstants)
     % Independent var
     constantLung = lungConstants(n);
@@ -75,29 +75,45 @@ end
 % Recommendation is 150 - 760 Torr
 
 for constantLung = [0.5, 0.1]
-    DEFAULTPARAMS   % 1 hour
+    DEFAULTSIMPARAMS   % 1 hour
     LungFunction = [0, constantLung];
     for constantO2 = 100:100:800
         PIO2 = constantO2;
         RunSimulation();
-        SaveSimulation('simdata/O2Only/Lung' + num2str(100*constantLung) ...
-            + 'Oxy' + num2str(constantO2));
+        SaveSimulation(['simdata/O2Only/Lung', num2str(100*constantLung), ...
+            'Oxy', num2str(constantO2)]);
     end
 end
 
-%% TODO: Patients
+%% Single patient
+DEFAULTSIMPARAMS
 
-for n = 1:10
-    % Load patient lun function
+patientNo = 1;
+
+% Load patient lung function
+LungFunction = LoadPatient(patientNo);
+
+% Simulate for 4 days
+t_start_new=0;
+t_end_new=4*24*60*60;
+
+% Run
+RunSimulation();
+SaveSimulation(['simdata/Patient', num2str(patientNo), '/NoIntervention']);
+
+
+%% Batch run of patients
+
+for n = 8:10
+    DEFAULTSIMPARAMS
     LungFunction = LoadPatient(n);
 
     % Simulate for 4 days
     t_start_new=0;
     t_end_new=4*24*60*60;
 
-    % Run
     RunSimulation();
-    SaveSimulation('simdata/Patient' + num2str(n) + '/NoIntervention');
+    SaveSimulation(['simdata/Patient', num2str(n), '/NoIntervention']);
 end
 
 %% Helper functions

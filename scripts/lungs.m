@@ -19,4 +19,5 @@ function plotPatientLungFunction(patientNumber)
     title("Patient " + num2str(patientNumber))
     ylabel("Lung function")
     xlabel("Time [s]")
+    ylim([0, 1])
 end
