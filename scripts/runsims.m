@@ -10,7 +10,7 @@ PNEUMA_MAIN_CONTROL_PANEL;
 %% Short example simulation
 
 % Load patient lung function
-LungFunction=[0, 0.2];      % Constant lung function (max is 1)
+LungFunction=[0, 0.15];      % Constant lung function (max is 1)
 
 % Set duration [s]
 t_start_new=0;
@@ -19,21 +19,21 @@ t_end_new=60*60*1;    % 1 hour
 % Set open-loop control parameters
 % Controls pulse blocks in Ventilator Controller.
 % 1) Inspiratory oxygen [torr]
-PIO2 = 300;
+PIO2 = 150;
 PIO2_change = 0;
 t_O2_start = 0;
 t_O2_duration = 0;
 
 % 2) Neuromuscular block [On/Off]
-NM_block_gain = 1;
-t_NM_block_start = 0;
-t_NM_block_duration = 0;
+NM_block_gain = 0;
+t_NM_block_start = 1000;
+t_NM_block_duration = 60*60-1000;
 
 % 3) Ventilation rate and pressure
-Ventilator_rate = 12;
-Mech_Vent_pressure = 120;
-t_Mech_Vent_start = 0;
-t_Mech_Vent_duration = 0;
+Ventilator_rate = 25;   % 12
+Mech_Vent_pressure = 40;   %120
+t_Mech_Vent_start = 1000;
+t_Mech_Vent_duration = 60*60-1000;
 
 % Run simulation
 RunSimulation()
