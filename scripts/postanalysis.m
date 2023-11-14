@@ -1,7 +1,9 @@
 % datafile = [pwd '/simdata/LungsOnly/LungFunction20/CONTROLLER'];
-datafile = [pwd '/simdata/Patient9/NoIntervention/CONTROLLER'];
+patientNo = 9;
 
-LungFunction = LoadPatient(9);
+datafile = [pwd '/simdata/Patient' num2str(patientNo) '/Ventilator1/CONTROLLER'];
+
+LungFunction = LoadPatient(patientNo);
 % LungFunction = [0,0.5];
 
 % Had to fix the timescale for this

@@ -88,7 +88,7 @@ end
 %% Single patient
 DEFAULTSIMPARAMS
 
-patientNo = 1;
+patientNo = 9;
 
 % Load patient lung function
 LungFunction = LoadPatient(patientNo);
@@ -98,9 +98,12 @@ t_start_new=0;
 t_end_new=4*24*60*60;
 
 % Run
-RunSimulation();
-SaveSimulation(['simdata/Patient', num2str(patientNo), '/NoIntervention']);
+RunSimulation()
+SaveSimulation(['simdata/Patient', num2str(patientNo), '/Ventilator1']);
 
+% NoIntervention
+% OxygenOnly
+% 
 
 %% Batch run of patients
 
@@ -113,7 +116,7 @@ for n = 8:10
     t_end_new=4*24*60*60;
 
     RunSimulation();
-    SaveSimulation(['simdata/Patient', num2str(n), '/NoIntervention']);
+    SaveSimulation(['simdata/Patient', num2str(n), '/OxygenOnly']);
 end
 
 %% Helper functions
